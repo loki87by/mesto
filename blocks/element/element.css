@@ -1,0 +1,10 @@
+@import url('./__image/element__image.css');
+@import url('./__title/element__title.css');
+
+.element {
+    display: block;
+    max-width: 282px;
+    height: 362px;
+    border-radius: 10px;
+    background-color: #fff;
+}

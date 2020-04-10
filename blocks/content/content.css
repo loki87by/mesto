@@ -1,1 +1,12 @@
-.content {}
+.content {
+    max-width: 882px;
+    margin: auto;
+    margin-top: 40px;
+}
+/*
+@media (max-width: 882px) {
+    .content {
+        max-width: 100%;
+        margin-top: 42px;
+    }
+}

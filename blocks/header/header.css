@@ -1,7 +1,15 @@
 .header {
     max-width: 882px;
     height: 74px;
+    margin: auto;
+    padding-top: 45px;
     border-bottom: 1px solid #545454;
+}
+
+@media (max-width: 909px) {
+    .header {
+        margin-left: 27px;
+    }
 }
 
 @media (max-width: 882px) {
@@ -10,8 +18,9 @@
     }
 }
 
-@media (max-width: 484px) {
+@media (max-width: 599px) {
     .header {
-        header: 56px;
+        height: 56px;
+        padding-top: 28px;
     }
 }

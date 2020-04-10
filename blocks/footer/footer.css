@@ -1,1 +1,25 @@
-.footer {}
+@import url('./__text/footer__text.css');
+
+.footer {
+    max-width: 318px;
+    height: max-content;
+    margin-left: calc((100% - 882px) / 2);
+    padding-bottom: 60px;
+}
+
+@media (max-width: 888px) {
+    .footer {
+        max-width: 318px;
+        height: max-content;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 599px) {
+    .footer {
+        max-width: 282px;
+        height: max-content;
+        margin: auto;
+        padding-bottom: 36px;
+    }
+}
