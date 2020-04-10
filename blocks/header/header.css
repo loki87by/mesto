@@ -1,1 +1,17 @@
-.header {}
+.header {
+    max-width: 882px;
+    height: 74px;
+    border-bottom: 1px solid #545454;
+}
+
+@media (max-width: 882px) {
+    .header {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 484px) {
+    .header {
+        header: 56px;
+    }
+}
