@@ -2,7 +2,9 @@
 @import url('./__info/profile__info.css');
 @import url('./__title/profile__title.css');
 @import url('./__subtitle/profile__subtitle.css');
-@import url('./__add-button/profile__add-button.css');
+@import url('./__button/profile__button.css');
+@import url('./__button/_type/profile__button_type_edit.css');
+@import url('./__button/_type/profile__button_type_add.css');
 
 .profile {
     display: flex;
@@ -13,7 +15,7 @@
     margin-bottom: 51px;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 650px) {
     .profile {
         flex-direction: column;
         align-items: center;

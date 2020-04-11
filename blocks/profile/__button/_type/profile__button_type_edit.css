@@ -1,0 +1,19 @@
+.profile__button_type_edit {
+    position: absolute;
+    right: 0;
+    bottom: 34px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+    background-image: url(../../../../images/pen.png);
+}
+
+@media (max-width: 650px) {
+    .profile__button_type_edit {
+        bottom: 28px;
+        right: 31px;
+        width: 18px;
+        height: 18px;
+    }
+}

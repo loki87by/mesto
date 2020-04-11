@@ -4,8 +4,9 @@
     margin-right: 30px;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 650px) {
     .profile__photo {
         margin-right: 0;
+        margin-bottom: 14px;
     }
 }

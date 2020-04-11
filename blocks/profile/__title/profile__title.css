@@ -8,8 +8,13 @@
     color: #FFF;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 650px) {
     .profile__title {
+        align-self: flex-start;
+        width: 201px;
+        text-align: center;
+        margin-left: 29px;
         font-size: 27px;
+        margin-bottom: -14px;
     }
 }
