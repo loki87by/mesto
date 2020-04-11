@@ -11,9 +11,18 @@
     background-image: url('../../../images/plus.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #000;
+    background-color: transparent;
 }
 
 .popup__close:hover {
     opacity: 0.6;
+}
+
+@media (max-width: 557px) {
+    .popup__close {
+        max-width: 7.5vw;
+        max-height: 7.5vw;
+        left: 76vw;
+        top: -6vw;
+    }
 }

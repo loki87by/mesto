@@ -10,7 +10,7 @@
     margin-bottom: 66px;
 }
 
-@media (max-width: 888px) {
+@media (max-width: 904px) {
     .elements {
         grid-template-columns: repeat(2, auto);
         justify-content: space-between;
@@ -18,7 +18,7 @@
     } 
 }
 
-@media (max-width: 599px) {
+@media (max-width: 604px) {
     .elements {
         grid-template-columns: auto;
         justify-content: center;
