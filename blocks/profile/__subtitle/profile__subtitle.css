@@ -13,6 +13,8 @@
 @media (max-width: 650px) {
     .profile__subtitle {
         max-width: 100%;
+        max-height: -webkit-max-content;
+        max-height: -moz-max-content;
         max-height: max-content;
         font-size: 14px;
         line-height: 17px;

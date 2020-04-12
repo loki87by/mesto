@@ -5,7 +5,9 @@
     padding: 0;
     left: 424px;
     bottom: 324px;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
     cursor: pointer;
     border: 0;
     background-image: url('../../../images/plus.png');
