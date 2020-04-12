@@ -9,14 +9,14 @@
         <title>Места</title>
 </head>
 <body class="root">
-    <section class="popup popup_opened">
-        <div class="popup__container">
+    <section class="popup">
+        <form class="popup__container">
             <button class="popup__close"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" placeholder="Жак-Ив Кусто" class="popup__text popup__text_type_name">
-            <input type="text" placeholder="Исследователь океана" class="popup__text popup__text_type_activity">
-            <button class="popup__button">Сохранить</button>
-        </div>
+            <input type="text" placeholder="Имя" value="Жак-Ив Кусто" class="popup__text popup__text_type_name">
+            <input type="text" placeholder="О себе" value="Исследователь океана" class="popup__text popup__text_type_activity">
+            <input type="submit" class="popup__button" value="Сохранить">
+        </form>
     </section>
     <div class="page">
         <header class="header">
@@ -27,8 +27,8 @@
                 <img class="profile__photo" src="./images/kusto.png" alt="Жак-Ив-Кусто">
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <p class="profile__subtitle">Исследователь океана</p>
                     <button class="profile__button profile__button_type_edit"></button>
+                    <p class="profile__subtitle">Исследователь океана</p>
                 </div>
                 <button class="profile__button profile__button_type_add">
                 </button>
@@ -82,5 +82,6 @@
             <p class="footer__text">&copy; 2020 Алексей Акулич</p>
         </footer>
     </div>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
