@@ -32,7 +32,7 @@ function formSubmitHandler (evt) {
     let profileActivity = profile.querySelector('.profile__subtitle');
     profileAuthor.textContent = nameInput.value;
     profileActivity.textContent = activityInput.value;
-    
+
 }
 saveButton.addEventListener('click', formSubmitHandler);
 saveButton.addEventListener('click', closeEdit);

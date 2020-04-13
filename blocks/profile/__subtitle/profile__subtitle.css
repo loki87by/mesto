@@ -1,6 +1,6 @@
 .profile__subtitle {
     max-width: 318px;
-    max-height: 18px;
+    min-height: 18px;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -10,12 +10,12 @@
     margin-top: 16px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 740px) {
     .profile__subtitle {
         max-width: 100%;
-        max-height: -webkit-max-content;
-        max-height: -moz-max-content;
-        max-height: max-content;
+        min-height: -webkit-max-content;
+        min-height: -moz-max-content;
+        min-height: max-content;
         font-size: 14px;
         line-height: 17px;
         text-align: center;
