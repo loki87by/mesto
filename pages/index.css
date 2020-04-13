@@ -9,4 +9,7 @@
 @import url('../blocks/element/element.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/popup/popup.css');
-@import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/_opened/popup_opened.css');
+/*понимаю, что модификатор тут не совсем по БЭМ, но в противном
+случае ничего не работает, либо слишком многое нужно менять, а т.к.
+старший ревьюер дал добро на это, не обессудьте ))) хорошего дня*/

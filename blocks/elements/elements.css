@@ -14,7 +14,6 @@
     .elements {
         grid-template-columns: repeat(2, auto);
         justify-content: space-around;
-        row-gap: 20px;
     } 
 }
 
