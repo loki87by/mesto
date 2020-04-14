@@ -9,23 +9,16 @@
     padding-bottom: 60px;
 }
 
-@media (max-width: 888px) {
+@media (max-width: 904px) {
     .footer {
-        max-width: 318px;
-        height: -webkit-max-content;
-        height: -moz-max-content;
-        height: max-content;
-        margin-left: 0;
+        margin-left: 19px;
     }
 }
 
 @media (max-width: 599px) {
     .footer {
         max-width: 282px;
-        height: -webkit-max-content;
-        height: -moz-max-content;
-        height: max-content;
         margin: auto;
-        padding-bottom: 36px;
+        padding-bottom: 32px;
     }
 }

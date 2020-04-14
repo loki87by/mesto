@@ -8,14 +8,13 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     max-width: 336px;
-    max-height: 77px;
     margin-right: calc(100% - 636px);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 740px) {
     .profile__info {
         max-width: 280px;
-        max-height: 66px;
+        min-height: 66px;
         margin: auto;
         margin-bottom: 36px;
     }

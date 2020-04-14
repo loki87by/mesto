@@ -3,12 +3,27 @@
         justify-self: end;
     width: 150px;
     height: 50px;
-    border: 2px solid #FFFFFF;
-    border-radius: 2px;
-    background-image: url(../../../../images/plus.png);
+    border: 2px solid #ffffff;
+    background-image: url(../../../../images/plus.svg);
 }
 
-@media (max-width: 650px) {
+/*не судите строго за такую реализацию расширения кнопки при 
+сужении экрана, этого в задании нет, просто эксперементальная функция,
+надеюсь не будет являться ошибкой*/
+
+@media (max-width: 600px) {
+    .profile__button_type_add {
+        width: calc(150px - (25% - 150px));
+    }
+}
+
+@media (max-width: 550px) {
+    .profile__button_type_add {
+        width: calc(150px - (15% - 150px));
+    }
+}
+
+@media (max-width: 500px) {
     .profile__button_type_add {
         width: 282px;
     }

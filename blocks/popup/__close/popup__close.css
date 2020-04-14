@@ -1,16 +1,16 @@
 .popup__close {
     position: absolute;
-    width: 40.7px;
-    height: 40.7px;
+    width: 41px;
+    height: 41px;
     padding: 0;
-    left: 424px;
+    right: -34px;
     bottom: 324px;
     -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
     cursor: pointer;
     border: 0;
-    background-image: url('../../../images/plus.png');
+    background-image: url('../../../images/plus.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -24,7 +24,7 @@
     .popup__close {
         max-width: 7.5vw;
         max-height: 7.5vw;
-        left: 76vw;
+        right: -6vw;
         top: -6vw;
     }
 }

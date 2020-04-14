@@ -13,8 +13,7 @@
 @media (max-width: 904px) {
     .elements {
         grid-template-columns: repeat(2, auto);
-        justify-content: space-between;
-        row-gap: 20px;
+        justify-content: space-around;
     } 
 }
 

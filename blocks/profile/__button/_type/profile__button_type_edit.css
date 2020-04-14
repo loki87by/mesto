@@ -5,10 +5,11 @@
     margin-left: 17px;
     margin-top: 19px;
     border: 1px solid #FFFFFF;
-    background-image: url(../../../../images/pen.png);
+    background-image: url(../../../../images/pen.svg);
+    background-color: transparent;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 740px) {
     .profile__button_type_edit {
         width: 18px;
         height: 18px;

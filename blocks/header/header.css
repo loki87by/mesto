@@ -8,12 +8,6 @@
     border-bottom: 1px solid #545454;
 }
 
-@media (max-width: 909px) {
-    .header {
-        margin-left: 27px;
-    }
-}
-
 @media (max-width: 882px) {
     .header {
         max-width: 100%;
