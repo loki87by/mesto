@@ -1,8 +1,9 @@
-.element__like {
+.card__like {
     width: 21px;
     height: 19px;
     margin-right: 18px;
     padding: 0;
+    cursor: pointer;
     border: none;
     background-color: #fff;
     background-image: url('../../../images/like.svg');
@@ -10,6 +11,6 @@
     background-position: center;
 }
 
-.element__like:hover {
+.card__like:hover {
     opacity: 0.6;
 }

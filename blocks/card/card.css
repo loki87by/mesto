@@ -1,9 +1,11 @@
-@import url('./__image/element__image.css');
-@import url('./__bottom/element__bottom.css');
-@import url('./__title/element__title.css');
-@import url('./__like/element__like.css');
+@import url('./__image/card__image.css');
+@import url('./__delete/card__delete.css');
+@import url('./__bottom/card__bottom.css');
+@import url('./__title/card__title.css');
+@import url('./__like/card__like.css');
 
-.element {
+.card {
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

@@ -1,15 +1,12 @@
-@import url('../vendor/normalize.css');
+﻿@import url('../vendor/normalize.css');
 @import url('../vendor/inter.css');
 @import url('../blocks/root/root.css');
 @import url('../blocks/page/page.css');
 @import url('../blocks/header/header.css');
 @import url('../blocks/content/content.css');
 @import url('../blocks/profile/profile.css');
-@import url('../blocks/elements/elements.css');
-@import url('../blocks/element/element.css');
+@import url('../blocks/cards/cards.css');
+@import url('../blocks/card/card.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
-/*понимаю, что модификатор тут не совсем по БЭМ, но в противном
-случае ничего не работает, либо слишком многое нужно менять, а т.к.
-старший ревьюер дал добро на это, не обессудьте ))) хорошего дня*/
