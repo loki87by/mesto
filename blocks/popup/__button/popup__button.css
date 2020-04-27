@@ -8,7 +8,6 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 1.22;
     text-align: center;
     color: #FFF;
     background: #000000;
@@ -27,6 +26,5 @@
         margin-left: calc((36 / 430) * 100%);
         margin-bottom: calc((36 / 430) * 100%);
         font-size: 3.2vw;
-        line-height: 2.56;
     }
 }

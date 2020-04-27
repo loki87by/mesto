@@ -5,6 +5,8 @@
 @import url('./__text/_type/popup__text_type_name.css');
 @import url('./__text/_type/popup__text_type_activity.css');
 @import url('./__button/popup__button.css');
+@import url('./__button/_type/popup__button_type_save.css');
+@import url('./__button/_type/popup__button_type_create.css');
 
 .popup {
     position: fixed;
