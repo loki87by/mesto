@@ -1,0 +1,31 @@
+.popup__image-close {
+        width: 41px;
+        height: 41px;
+        padding:0;
+        grid-area: button;
+        align-self: center;
+        justify-self: center;
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+        cursor: pointer;
+        border: 0;
+        background-image: url('../../../images/plus.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+    /*
+    .popup__close:hover {
+        opacity: 0.6;
+    }
+    
+    @media (max-width: 557px) {
+        .popup__close {
+            max-width: 7.5vw;
+            max-height: 7.5vw;
+            right: -6vw;
+            top: -6vw;
+        }
+    }
+}
