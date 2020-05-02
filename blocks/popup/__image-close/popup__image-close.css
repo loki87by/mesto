@@ -1,6 +1,6 @@
 .popup__image-close {
-        width: 41px;
-        height: 41px;
+        width: 40px;
+        height: 40px;
         padding:0;
         grid-area: button;
         align-self: center;
@@ -15,17 +15,15 @@
         background-repeat: no-repeat;
         background-color: transparent;
     }
-    /*
-    .popup__close:hover {
+    
+    .popup__image-close:hover {
         opacity: 0.6;
     }
     
     @media (max-width: 557px) {
-        .popup__close {
-            max-width: 7.5vw;
-            max-height: 7.5vw;
-            right: -6vw;
-            top: -6vw;
+        .popup__image-close {
+            width: 30px;
+            height: 30px;
         }
     }
 }

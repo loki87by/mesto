@@ -141,27 +141,12 @@ initialCards.forEach(function (item){
         const popupImageTitle = popupContainer.querySelector('.popup__image-title');
         popupImage.setAttribute('src', imageLink);
         popupImage.setAttribute('alt', imageName);
-        popupImageTitle.setAttribute('value', imageName);
+        popupImageTitle.textContent = imageName;
         popupWindow();
-
-        //если картинка портретная
-        popupImage.addEventListener('load', () => {
-            let popupContainer = document.querySelector('.popup__image-container');
-        let height = popupImage.naturalHeight;
-        let width = popupImage.naturalWidth;
-        if (height > width) {
-            popupContainer.style.gridTemplateColumns = 'max-content 41px';
-            popupImage.style.maxWidth = 'fit-content';
-            popupImage.style.width = 'initial';
-            popupImage.style.maxHeight = '100%';
-            popupImage.style.objectFit = 'contain';
-        }
 
         //схлопывание картинки
         const imageClose = document.querySelector('.popup__image-close');
         imageClose.addEventListener('click', popupWindow);
-
-
     });
 });
 
