@@ -6,6 +6,8 @@
 @import url('./__text/popup__text.css');
 @import url('./__text/_type/popup__text_type_name.css');
 @import url('./__text/_type/popup__text_type_activity.css');
+@import url('./__text/_type/popup__text_type_place.css');
+@import url('./__text/_type/popup__text_type_link.css');
 @import url('./__button/popup__button.css');
 @import url('./__button/_type/popup__button_type_save.css');
 @import url('./__button/_type/popup__button_type_create.css');
@@ -14,11 +16,18 @@
 
 .popup {
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     margin: 0;
     padding: 0;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .8s, visibility 0s linear .3s;
+    -o-transition: opacity .8s, visibility 0s linear .3s;
+    transition: opacity .8s, visibility 0s linear .3s;
 }
