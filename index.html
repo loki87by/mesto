@@ -8,15 +8,36 @@
         <title>Места</title>
 </head>
 <body class="root">
-    <section class="popup">
-        <form class="popup__container">
-            <button class="popup__close" type="reset"></button>
-            <h2 class="popup__title"></h2>
-            <input type="text" placeholder="" value="" class="popup__text popup__text_type_name">
-            <input type="text" placeholder="" value="" class="popup__text popup__text_type_activity">
-            <input type="submit" class="popup__button popup__button_type_save popup__button_type_create" value="">
+
+    <!--попапы-->
+    <section class="popup" id="popupProfile">
+        <form class="popup__container" name="profileForm" method="get" action="#">
+            <button class="popup__close" type="reset" aria-label="Закрыть"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input type="text" placeholder="Имя" value="Жак-Ив-Кусто" required class="popup__text popup__text_type_name" name="nameInput">
+            <input type="text" placeholder="О себе" value="Исследователь океана" required class="popup__text popup__text_type_activity" name="activityInput">
+            <button type="submit" class="popup__button popup__button_type_save">Сохранить</button>
         </form>
     </section>
+
+    <section class="popup" id="addCards">
+        <form class="popup__container" name="card" method="get" action="#" id="form">
+            <button class="popup__close" type="reset" aria-label="Закрыть" id="closeAdds"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <input type="text" placeholder="Название" required class="popup__text popup__text_type_place" name="placeInput">
+            <input type="url" placeholder="Ссылка на картинку" required class="popup__text popup__text_type_link" name="linkInput">
+            <button type="submit" class="popup__button popup__button_type_save">Создать</button>
+        </form>
+    </section>
+    
+    <div class="popup popup_imageUpdates" id="popupCard">
+        <figure class="popup__image-container">
+            <button class="popup__image-close" type="reset" aria-label="Закрыть" id="cardClose"></button>
+            <img src="#" class="popup__image" alt="" />
+            <figcaption class="popup__image-title"></figcaption>
+        </figure>
+    </div>
+
     <div class="page">
         <header class="header">
             <img class="header__logo" src="./images/mesto.png" alt="логотип">
@@ -34,11 +55,11 @@
             <div class="cards">
                 <template id="card">
                     <div class="card">
-                        <button class="card__delete" type="reset"></button>
+                        <button class="card__delete" type="reset" aria-label="Удалить"></button>
                         <img class="card__image" src="" alt="">
                         <div class="card__bottom">
                             <h2 class="card__title"></h2>
-                            <button class="card__like" type="button"></button>
+                            <button class="card__like" type="button" aria-label="Мне нравится"></button>
                         </div>
                     </div>
                 </template>
@@ -48,6 +69,7 @@
             <p class="footer__text">&copy; 2020 Алексей Акулич</p>
         </footer>
     </div>
+    <script src="./scripts/array.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
