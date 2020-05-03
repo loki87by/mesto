@@ -16,6 +16,8 @@
 
 .popup {
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -25,5 +27,7 @@
     padding: 0;
     visibility: hidden;
     opacity: 0;
+    -webkit-transition: opacity .8s, visibility 0s linear .3s;
+    -o-transition: opacity .8s, visibility 0s linear .3s;
     transition: opacity .8s, visibility 0s linear .3s;
 }
