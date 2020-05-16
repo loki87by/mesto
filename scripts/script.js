@@ -23,9 +23,9 @@ const profileAuthor = profile.querySelector('.profile__title');
 const nameInput = container.querySelector('.popup__text_type_name');
 const profileActivity = profile.querySelector('.profile__subtitle');
 const activityInput = container.querySelector('.popup__text_type_activity');
-const form = document.querySelector('#form');
-const placeInput = form.querySelector('.popup__text_type_place');
-const linkInput = form.querySelector('.popup__text_type_link');
+const form = document.querySelector('#form2');
+//const placeInput = form.querySelector('.popup__text_type_place');
+//const linkInput = form.querySelector('.popup__text_type_link');
 
 //переключатель попапа
 function popupWindow(elem) {
