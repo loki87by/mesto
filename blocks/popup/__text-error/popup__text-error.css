@@ -1,0 +1,12 @@
+.popup__text-error {
+    margin: 3px 0 0 0;
+    max-height: 12px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ff0000;
+    word-wrap: break-word;
+    opacity: 0;
+    visibility: hidden;
+    transition: .1s opacity, .1s visibility ease-in;
+    /*z-index: 3;*/
+  }
