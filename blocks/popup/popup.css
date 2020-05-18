@@ -10,7 +10,7 @@
 @import url('./__text/_type/popup__text_type_place.css');
 @import url('./__text/_type/popup__text_type_link.css');
 @import url('./__text-error/popup__text-error.css');
-@import url('./__text-error/_active/popup__text-error_active.css');
+@import url('./__text-error/_type/popup__text-error_type_bottom.css');
 @import url('./__button/popup__button.css');
 @import url('./__button/_type/popup__button_type_save.css');
 @import url('./__button/_type/popup__button_type_create.css');

@@ -1,4 +1,4 @@
-//gthtvtyyst
+//переменные
 const root = document.querySelector('.root');
 const page = root.querySelector('.page');
 const content = page.querySelector('.content');
@@ -7,6 +7,7 @@ const container = popup.querySelector('.popup__container');
 const popupProfile = document.querySelector('#popupProfile');
 const addCards = document.querySelector('#addCards');
 const popupCard = document.querySelector('#popupCard');
+const formProfile = document.querySelector('#form1');
 const profile = content.querySelector('.profile');
 const profileInfo = profile.querySelector('.profile__info');
 const editButton = profileInfo.querySelector('.profile__button_type_edit');
@@ -23,13 +24,31 @@ const profileAuthor = profile.querySelector('.profile__title');
 const nameInput = container.querySelector('.popup__text_type_name');
 const profileActivity = profile.querySelector('.profile__subtitle');
 const activityInput = container.querySelector('.popup__text_type_activity');
-const form = document.querySelector('#form2');
-//const placeInput = form.querySelector('.popup__text_type_place');
-//const linkInput = form.querySelector('.popup__text_type_link');
+const placeForm = document.querySelector('#form2');
+const placeInput = placeForm.querySelector('.popup__text_type_place');
+const linkInput = placeForm.querySelector('.popup__text_type_link');
+const formInput = Array.from(document.querySelectorAll('.popup__text'));
+const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
 
+// функция обнуления ошибок
+function cleanError(elem) {
+    spanError.forEach((span) => {
+        span.textContent = '';
+    })
+};
+  
 //переключатель попапа
 function popupWindow(elem) {
     elem.classList.toggle('popup_opened');
+    cleanError(elem);
+    if (!elem.classList.contains('popup_opened')) {
+        document.removeEventListener('keydown', (evt) => {
+            if (evt.keyCode === 27) { 
+                elem.classList.remove('popup_opened');
+                clearInputs();
+            };
+        });
+    };
 };
 
 //редактирование профиля
@@ -37,6 +56,53 @@ function editProfile() {
     popupWindow(popupProfile);
     nameInput.value = profileAuthor.textContent;
     activityInput.value = profileActivity.textContent;
+};
+
+//открытие увеличенной картинки
+function openImage(evt) { 
+    cardTitle.textContent = evt.target.alt;
+    cardOpen.src = evt.target.src;
+    cardOpen.alt = evt.target.alt;
+    popupWindow(popupCard);
+};
+
+//функция лайков
+function cardLike(evt) {
+  evt.target.classList.toggle("card__like_type_active");
+};
+
+//функция удаления
+function cardDelete(evt) {
+    const removeCard = evt.target.closest('.card');
+    const btnLike = removeCard.querySelector(".card__like");
+    const btnDelete = removeCard.querySelector('.card__delete');
+    const imageView = removeCard.querySelector('.card__image');
+    btnLike.removeEventListener("click", cardLike);
+    btnDelete.removeEventListener('click', cardDelete);
+    imageView.removeEventListener('click', openImage);
+    removeCard.remove();
+};
+
+//создание карточки
+function createCard(link, name) {
+    const cardElement = cardTemplate.content.cloneNode(true);
+    const cardImage = cardElement.querySelector('.card__image');
+    const btnLike = cardElement.querySelector(".card__like");
+    const btnDelete = cardElement.querySelector(".card__delete");
+    cardImage.src = link;
+    cardImage.alt = name;
+    cardElement.querySelector(".card__title").textContent = name;
+    btnLike.addEventListener("click", cardLike);
+    btnDelete.addEventListener("click", cardDelete);
+    cardImage.addEventListener("click", openImage);
+    return cardElement;
+};
+
+//прогон массива
+function addPlaces(initialCards) {
+    initialCards.forEach(function (item) {
+        cards.append(createCard(item.link, item.name));
+    });
 };
 
 //сохранение профиля
@@ -49,49 +115,38 @@ function formSubmitHandler (evt) {
     popupWindow(popupProfile);
 };
 
-//создание карточек
-function createCard(link, name) {
-    const cardElement = cardTemplate.content.firstElementChild.cloneNode(true);
-    cardElement.querySelector('.card__image').src = link;
-    cardElement.querySelector(".card__title").textContent = name;
-    cardElement.querySelector(".card__image").alt = name;
-    cardElement.querySelector(".card__like").addEventListener("click", function (evt) {
-      evt.target.classList.toggle("card__like_type_active");
-    });
-    cardElement.querySelector(".card__delete").addEventListener('click', () => cardElement.remove());
-    cardElement.querySelector(".card__image").addEventListener("click", function () {
-      openImage(link, name);
-    });
-    return cardElement;
+function clearInputs() {
+    linkInput.value = "";
+    placeInput.value = "";
 };
-
-//прогон массива
-initialCards.forEach(function (item) {
-    cards.prepend(createCard(item.link, item.name));
-});
 
 //новая карточка
 function placeSubmitHandler(evt) {
     evt.preventDefault();
     cards.prepend(createCard(linkInput.value, placeInput.value));
-    linkInput.value = "";
-    placeInput.value = "";
+    clearInputs();
     popupWindow(addCards);
 };
 
-//разворот картинки
-function openImage(link, name) {
-    cardTitle.textContent = name;
-    cardOpen.src = link;
-    cardOpen.alt = name;
-    popupWindow(popupCard);
-};
-
-//клики
+//события
 editButton.addEventListener("click", () => editProfile());
 closePopup.addEventListener("click", () => editProfile());
 addButton.addEventListener("click", () => popupWindow(addCards));
 closeAdds.addEventListener("click", () => popupWindow(addCards)); 
 cardClose.addEventListener("click", () => popupWindow(popupCard));
-container.addEventListener("submit", formSubmitHandler);
-form.addEventListener("submit", placeSubmitHandler);
+formProfile.addEventListener("submit", formSubmitHandler);
+placeForm.addEventListener("submit", placeSubmitHandler);
+document.addEventListener('keydown', (evt) => {
+    if (evt.keyCode === 27) {
+      document.querySelector('.popup_opened').classList.remove('popup_opened');
+      clearInputs();
+    };
+});
+document.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup')) {
+        document.querySelector('.popup_opened').classList.remove('popup_opened');
+        clearInputs();
+    }
+});
+
+addPlaces(initialCards);
