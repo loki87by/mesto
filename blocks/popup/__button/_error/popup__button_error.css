@@ -1,7 +1,8 @@
 .popup__button_error {
     background-color: #fff;
     border: 1px solid #000;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border-radius: 2px;
     color: #000;
     opacity: .2;

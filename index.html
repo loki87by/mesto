@@ -26,11 +26,11 @@
         <form class="popup__container" name="card" method="get" action="#" id="form2" novalidate>
             <button class="popup__close" type="reset" aria-label="Закрыть" id="closeAdds"></button>
             <h2 class="popup__title">Новое место</h2>
-            <input type="text" placeholder="Название" required class="popup__text popup__text_type_place popup__text_error" id="place-input" name="placeInput" minlength="1" maxlength="30">
+            <input type="text" placeholder="Название" required class="popup__text popup__text_type_place" id="place-input" name="placeInput" minlength="1" maxlength="30">
             <span class="popup__text-error" id="place-input-error">Вы пропустили это поле.</span>
-            <input type="url" placeholder="Ссылка на картинку" required class="popup__text popup__text_type_link popup__text_error" id="link-input" name="linkInput">
+            <input type="url" placeholder="Ссылка на картинку" required class="popup__text popup__text_type_link" id="link-input" name="linkInput">
             <span class="popup__text-error popup__text-error_type_bottom" id="link-input-error">Введите адрес сайта.</span>
-            <button type="submit" class="popup__button popup__button_type_save popup__button_error">Создать</button>
+            <button type="submit" class="popup__button popup__button_type_save">Создать</button>
         </form>
     </section>
     
@@ -76,6 +76,5 @@
     <script src="./scripts/validate.js"></script>
     <script src="./scripts/array.js"></script>
     <script src="./scripts/script.js"></script>
-    
 </body>
 </html>

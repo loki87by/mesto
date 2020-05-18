@@ -69,6 +69,7 @@ const setEventListeners = (formElement, form) => {
     });
 };
 
+//активаия валидации
 const enableValidation = (form) => {
     const formList = Array.from(document.querySelectorAll(form.formSelector));
     formList.forEach((formElement) => {
