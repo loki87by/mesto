@@ -1,6 +1,6 @@
 //переменные
 const root = document.querySelector('.root');
-const page = root.querySelector('.page');
+const page = document.querySelector('.page');
 const content = page.querySelector('.content');
 const popup = root.querySelector('.popup');
 const container = popup.querySelector('.popup__container');
@@ -15,7 +15,6 @@ const closePopup = container.querySelector('.popup__close');
 const addButton = profile.querySelector('.profile__button_type_add');
 const closeAdds = document.getElementById('closeAdds');
 const cards = content.querySelector('.cards');
-const card = cards.querySelector('.card');
 const cardTemplate = document.getElementById('card');
 const cardOpen = popupCard.querySelector('.popup__image');
 const cardTitle = popupCard.querySelector('.popup__image-title');
@@ -27,11 +26,11 @@ const activityInput = container.querySelector('.popup__text_type_activity');
 const placeForm = document.querySelector('#form2');
 const placeInput = placeForm.querySelector('.popup__text_type_place');
 const linkInput = placeForm.querySelector('.popup__text_type_link');
-const formInput = Array.from(document.querySelectorAll('.popup__text'));
+//const formInput = Array.from(document.querySelectorAll('.popup__text'));
 const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
 
 // функция обнуления ошибок
-function cleanError(elem) {
+function cleanError() {
     spanError.forEach((span) => {
         span.textContent = '';
     })
@@ -43,7 +42,7 @@ function popupWindow(elem) {
     cleanError(elem);
     if (!elem.classList.contains('popup_opened')) {
         document.removeEventListener('keydown', (evt) => {
-            if (evt.keyCode === 27) { 
+            if (evt.key === 'Escape') { 
                 elem.classList.remove('popup_opened');
                 clearInputs();
             };
@@ -137,7 +136,7 @@ cardClose.addEventListener("click", () => popupWindow(popupCard));
 formProfile.addEventListener("submit", formSubmitHandler);
 placeForm.addEventListener("submit", placeSubmitHandler);
 document.addEventListener('keydown', (evt) => {
-    if (evt.keyCode === 27) {
+    if (evt.key === 'Escape') {
       document.querySelector('.popup_opened').classList.remove('popup_opened');
       clearInputs();
     };
