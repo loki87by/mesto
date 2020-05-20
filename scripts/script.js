@@ -43,6 +43,16 @@ function cleanError() {
     })
 };
 
+//блокировка пустых карточек
+function addBlocker () {
+    if (addCards.classList.contains('popup_opened')) {
+        buttonError.forEach((submit) => {
+            submit.classList.add('popup__button_error');
+            submit.setAttribute('disabled', 'true');
+        });
+    };
+}
+
 //снятие слушателей
 function unlistener () {
     document.removeEventListener('keydown', popupHiddenEscape);
@@ -70,6 +80,7 @@ function popupHiddenOverlay (evt) {
 function popupWindow(elem) {
     elem.classList.toggle('popup_opened');
     cleanError(elem);
+    addBlocker ();
     const ifPopupOpened = elem.classList.contains('popup_opened');
     if (ifPopupOpened === true) {
     document.addEventListener('keydown', popupHiddenEscape);
