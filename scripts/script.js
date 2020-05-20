@@ -26,7 +26,6 @@ const activityInput = container.querySelector('.popup__text_type_activity');
 const placeForm = document.querySelector('#form2');
 const placeInput = placeForm.querySelector('.popup__text_type_place');
 const linkInput = placeForm.querySelector('.popup__text_type_link');
-//const formInput = Array.from(document.querySelectorAll('.popup__text'));
 const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
 
 // функция обнуления ошибок
@@ -35,18 +34,40 @@ function cleanError() {
         span.textContent = '';
     })
 };
+
+//снятие слушателей
+function unlistener () {
+    document.removeEventListener('keydown', popupHiddenEscape);
+    document.removeEventListener('click', popupHiddenOverlay);
+}
+//скрытие попапа клавишой esc
+function popupHiddenEscape (evt) {
+    if (evt.key === 'Escape') { 
+        document.querySelector('.popup_opened').classList.remove('popup_opened');
+        clearInputs();
+        unlistener ()
+    };
+};
   
+//скрытие попапа кликом на оверлэй
+function popupHiddenOverlay (evt) {
+    if (evt.target.classList.contains('popup')) {
+        document.querySelector('.popup_opened').classList.remove('popup_opened');
+        clearInputs();
+        unlistener ()
+    }
+};
+
 //переключатель попапа
 function popupWindow(elem) {
     elem.classList.toggle('popup_opened');
     cleanError(elem);
-    if (!elem.classList.contains('popup_opened')) {
-        document.removeEventListener('keydown', (evt) => {
-            if (evt.key === 'Escape') { 
-                elem.classList.remove('popup_opened');
-                clearInputs();
-            };
-        });
+    const ifPopupOpened = elem.classList.contains('popup_opened');
+    if (ifPopupOpened === true) {
+    document.addEventListener('keydown', popupHiddenEscape);
+    document.addEventListener('click', popupHiddenOverlay);
+    } else {
+        unlistener ()
     };
 };
 
@@ -114,6 +135,7 @@ function formSubmitHandler (evt) {
     popupWindow(popupProfile);
 };
 
+//чистка инпутов
 function clearInputs() {
     linkInput.value = "";
     placeInput.value = "";
@@ -135,17 +157,6 @@ closeAdds.addEventListener("click", () => popupWindow(addCards));
 cardClose.addEventListener("click", () => popupWindow(popupCard));
 formProfile.addEventListener("submit", formSubmitHandler);
 placeForm.addEventListener("submit", placeSubmitHandler);
-document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      document.querySelector('.popup_opened').classList.remove('popup_opened');
-      clearInputs();
-    };
-});
-document.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup')) {
-        document.querySelector('.popup_opened').classList.remove('popup_opened');
-        clearInputs();
-    }
-});
 
+//загрузка карточек
 addPlaces(initialCards);
