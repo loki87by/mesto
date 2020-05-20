@@ -27,11 +27,19 @@ const placeForm = document.querySelector('#form2');
 const placeInput = placeForm.querySelector('.popup__text_type_place');
 const linkInput = placeForm.querySelector('.popup__text_type_link');
 const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
+const borderError = Array.from(document.querySelectorAll('.popup__text'));
+const buttonError = Array.from(document.querySelectorAll('.popup__button'));
 
 // функция обнуления ошибок
 function cleanError() {
     spanError.forEach((span) => {
         span.textContent = '';
+    })
+    borderError.forEach((input) => {
+        input.classList.remove('popup__text_error');
+    })
+    buttonError.forEach((submit) => {
+        submit.classList.remove('popup__button_error')
     })
 };
 
