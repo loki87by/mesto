@@ -1,6 +1,6 @@
 //переменные
 const root = document.querySelector('.root');
-const page = root.querySelector('.page');
+const page = document.querySelector('.page');
 const content = page.querySelector('.content');
 const popup = root.querySelector('.popup');
 const container = popup.querySelector('.popup__container');
@@ -15,7 +15,6 @@ const closePopup = container.querySelector('.popup__close');
 const addButton = profile.querySelector('.profile__button_type_add');
 const closeAdds = document.getElementById('closeAdds');
 const cards = content.querySelector('.cards');
-const card = cards.querySelector('.card');
 const cardTemplate = document.getElementById('card');
 const cardOpen = popupCard.querySelector('.popup__image');
 const cardTitle = popupCard.querySelector('.popup__image-title');
@@ -27,35 +26,76 @@ const activityInput = container.querySelector('.popup__text_type_activity');
 const placeForm = document.querySelector('#form2');
 const placeInput = placeForm.querySelector('.popup__text_type_place');
 const linkInput = placeForm.querySelector('.popup__text_type_link');
-const formInput = Array.from(document.querySelectorAll('.popup__text'));
 const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
+const borderError = Array.from(document.querySelectorAll('.popup__text'));
+const buttonError = Array.from(document.querySelectorAll('.popup__button'));
 
 // функция обнуления ошибок
-function cleanError(elem) {
-    spanError.forEach((span) => {
-        span.textContent = '';
-    })
+function cleanError() {
+  spanError.forEach((span) => {
+    span.textContent = '';
+  })
+  borderError.forEach((input) => {
+    input.classList.remove('popup__text_error');
+  })
+  buttonError.forEach((submit) => {
+    submit.classList.remove('popup__button_error')
+  })
+};
+
+//блокировка пустых карточек
+function addBlocker () {
+  if (addCards.classList.contains('popup_opened')) {
+    buttonError.forEach((submit) => {
+      submit.classList.add('popup__button_error');
+      submit.setAttribute('disabled', 'true');
+    });
+  };
+}
+
+//снятие слушателей
+function unlistener () {
+  document.removeEventListener('keydown', popupHiddenEscape);
+  document.removeEventListener('click', popupHiddenOverlay);
+}
+
+//скрытие попапа клавишой esc
+function popupHiddenEscape (evt) {
+  if (evt.key === 'Escape') { 
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    clearInputs();
+    unlistener ()
+  };
 };
   
+//скрытие попапа кликом на оверлэй
+function popupHiddenOverlay (evt) {
+  if (evt.target.classList.contains('popup')) {
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    clearInputs();
+    unlistener ()
+  }
+};
+
 //переключатель попапа
 function popupWindow(elem) {
-    elem.classList.toggle('popup_opened');
-    cleanError(elem);
-    if (!elem.classList.contains('popup_opened')) {
-        document.removeEventListener('keydown', (evt) => {
-            if (evt.keyCode === 27) { 
-                elem.classList.remove('popup_opened');
-                clearInputs();
-            };
-        });
-    };
+  elem.classList.toggle('popup_opened');
+  cleanError(elem);
+  addBlocker ();
+  const isPopupOpened = elem.classList.contains('popup_opened');
+  if (isPopupOpened === true) {
+    document.addEventListener('keydown', popupHiddenEscape);
+    document.addEventListener('click', popupHiddenOverlay);
+  } else {
+    unlistener ()
+  };
 };
 
 //редактирование профиля
 function editProfile() {
-    popupWindow(popupProfile);
-    nameInput.value = profileAuthor.textContent;
-    activityInput.value = profileActivity.textContent;
+  popupWindow(popupProfile);
+  nameInput.value = profileAuthor.textContent;
+  activityInput.value = profileActivity.textContent;
 };
 
 //открытие увеличенной картинки
@@ -109,17 +149,18 @@ function createCard(link, name) {
 
 //сохранение профиля
 function formSubmitHandler (evt) {
-    evt.preventDefault();
-    nameInput.getAttribute('value');
-    activityInput.getAttribute('value');
-    profileAuthor.textContent = nameInput.value;
-    profileActivity.textContent = activityInput.value;
-    popupWindow(popupProfile);
+  evt.preventDefault();
+  nameInput.getAttribute('value');
+  activityInput.getAttribute('value');
+  profileAuthor.textContent = nameInput.value;
+  profileActivity.textContent = activityInput.value;
+  popupWindow(popupProfile);
 };
 
+//чистка инпутов
 function clearInputs() {
-    linkInput.value = "";
-    placeInput.value = "";
+  linkInput.value = "";
+  placeInput.value = "";
 };
 
 //новая карточка

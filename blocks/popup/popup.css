@@ -19,19 +19,19 @@
 @import url('./__image-title/popup__image-title.css');
 
 .popup {
-    position: fixed;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity .8s, visibility 0s linear .3s;
-    -o-transition: opacity .8s, visibility 0s linear .3s;
-    transition: opacity .8s, visibility 0s linear .3s;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .8s, visibility 0s linear .3s;
+  -o-transition: opacity .8s, visibility 0s linear .3s;
+  transition: opacity .8s, visibility 0s linear .3s;
 }
