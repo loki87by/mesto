@@ -80,15 +80,6 @@ class Card {
   }
 }
 
-//прогон массива
-function addPlaces(initialCards) {
-  initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link);
-    document.querySelector('.cards').prepend(card.generateCard());
-  });
-};
 
-//загрузка карточек
-addPlaces(initialCards);
-
-import { popupWindow } from './index.js'
+import { popupWindow } from './index.js';
+export { initialCards, Card }

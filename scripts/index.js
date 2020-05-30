@@ -98,16 +98,6 @@ function editProfile() {
   activityInput.value = profileActivity.textContent;
 };
 
-//создание карточки
-function createCard(link, name) {
-  const cardElement = cardTemplate.content.cloneNode(true);
-  const cardImage = cardElement.querySelector('.card__image');
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardElement.querySelector(".card__title").textContent = name;
-  return cardElement;
-};
-
 //сохранение профиля
 function formSubmitHandler (evt) {
   evt.preventDefault();
@@ -127,9 +117,20 @@ function clearInputs() {
 //новая карточка
 function placeSubmitHandler(evt) {
   evt.preventDefault();
-  cards.prepend(createCard(linkInput.value, placeInput.value));
+  this._image = linkInput.value;
+  this._title = placeInput.value;
+  const card = new Card(this._title, this._image);
+  document.querySelector('.cards').prepend(card.generateCard());
   clearInputs();
   popupWindow(addCards);
+};
+
+//прогон массива
+function addPlaces(initialCards) {
+  initialCards.forEach((item) => {
+    const card = new Card(item.name, item.link);
+    document.querySelector('.cards').prepend(card.generateCard());
+  });
 };
 
 //события
@@ -141,4 +142,9 @@ cardClose.addEventListener("click", () => popupWindow(popupCard));
 formProfile.addEventListener("submit", formSubmitHandler);
 placeForm.addEventListener("submit", placeSubmitHandler);
 
+
+//загрузка карточек
+addPlaces(initialCards);
+
 export { popupWindow };
+import { initialCards, Card } from "./card.js"
