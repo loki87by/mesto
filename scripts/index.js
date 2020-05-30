@@ -14,10 +14,6 @@ const editButton = profileInfo.querySelector('.profile__button_type_edit');
 const closePopup = container.querySelector('.popup__close');
 const addButton = profile.querySelector('.profile__button_type_add');
 const closeAdds = document.getElementById('closeAdds');
-const cards = content.querySelector('.cards');
-const cardTemplate = document.getElementById('card');
-const cardOpen = popupCard.querySelector('.popup__image');
-const cardTitle = popupCard.querySelector('.popup__image-title');
 const cardClose = popupCard.querySelector('.popup__image-close');
 const profileAuthor = profile.querySelector('.profile__title');
 const nameInput = container.querySelector('.popup__text_type_name');
@@ -26,6 +22,7 @@ const activityInput = container.querySelector('.popup__text_type_activity');
 const placeForm = document.querySelector('#form2');
 const placeInput = placeForm.querySelector('.popup__text_type_place');
 const linkInput = placeForm.querySelector('.popup__text_type_link');
+const popups = Array.from(document.querySelectorAll('.popup__container'));
 const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
 const borderError = Array.from(document.querySelectorAll('.popup__text'));
 const buttonError = Array.from(document.querySelectorAll('.popup__button'));
@@ -146,5 +143,23 @@ placeForm.addEventListener("submit", placeSubmitHandler);
 //загрузка карточек
 addPlaces(initialCards);
 
+//валидация форм
+function validation() {
+  popups.forEach((form) => {
+      const valid = new FormValidator({
+        formSelector: ".popup__container",
+        inputSelector: ".popup__text",
+        submitButtonSelector: ".popup__button",
+        inactiveButtonClass: "popup__button_error",
+        inputErrorClass: "popup__text_error",
+        errorClass: "popup__text-error"
+      }, form);
+      valid.enableValidation();
+  });
+}
+
+validation();
+
 export { popupWindow };
-import { initialCards, Card } from "./card.js"
+import { initialCards, Card } from "./Card.js"
+import { FormValidator } from "./FormValidator.js"
