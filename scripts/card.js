@@ -1,3 +1,4 @@
+//стартовый массив картинок
 const initialCards = [
   {
       name: 'Архыз',
@@ -25,22 +26,24 @@ const initialCards = [
   }
 ];
 
+//карточка
 class Card {
   constructor(title, image) {
     this._title = title;
     this._image = image;
-    //isLiked: false;
-    //this._like = data.like;
   }
 
+  //лайк
   _like() {
     this._element.querySelector('.card__like').classList.toggle('card__like_type_active');
   }
 
+  //удаление
   _delete() {
     this._element.remove();
   }
 
+  //попап
   _open() {
     const cardOpen = document.querySelector('.popup__image');
     const cardTitle = document.querySelector('.popup__image-title');
@@ -50,6 +53,7 @@ class Card {
     popupWindow(popupCard);
   }
 
+  //слушатели
   _setEventListeners() {
     this._element.querySelector('.card__like').addEventListener('click', () => {
       this._like();
@@ -62,6 +66,7 @@ class Card {
     });
   }
 
+  //отрисовка в доме
   _getTemplate() {
     const cardElement = document
       .getElementById('card')
@@ -71,32 +76,16 @@ class Card {
     this._element = cardElement;
     return this._element;
   }
-  
+
+  //создание карточки
   generateCard() {
     this._getTemplate();
     this._setEventListeners();
     this._element.querySelector('.card__image').src = this._image;
     this._element.querySelector('.card__title').textContent = this._title;
-    //this._element.querySelector('.card__like');
     return this._element;
   }
 }
 
-//прогон массива
-function addPlaces(initialCards) {
-  initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link);
-    document.querySelector('.cards').prepend(card.generateCard());
-    ///cards.append(createCard(item.link, item.name));
-  });
-};
-
-addPlaces(initialCards);
-export { Card, addPlaces };
-import { popupWindow } from './script.js';
-
-//initialCards.forEach((item) => {
-  //const card = new Card(item.name, item.link);
-  // Добавляем в DOM
-  //document.querySelector('.grid').prepend(card.generateCard());
-//});
+import { popupWindow } from './index.js';
+export { initialCards, Card }
