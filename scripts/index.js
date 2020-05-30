@@ -98,51 +98,14 @@ function editProfile() {
   activityInput.value = profileActivity.textContent;
 };
 
-//открытие увеличенной картинки
-function openImage(evt) { 
-  cardTitle.textContent = evt.target.alt;
-  cardOpen.src = evt.target.src;
-  cardOpen.alt = evt.target.alt;
-  popupWindow(popupCard);
-};
-
-//функция лайков
-function cardLike(evt) {
-  evt.target.classList.toggle("card__like_type_active");
-};
-
-//функция удаления
-function cardDelete(evt) {
-  const removeCard = evt.target.closest('.card');
-  const btnLike = removeCard.querySelector(".card__like");
-  const btnDelete = removeCard.querySelector('.card__delete');
-  const imageView = removeCard.querySelector('.card__image');
-  btnLike.removeEventListener("click", cardLike);
-  btnDelete.removeEventListener('click', cardDelete);
-  imageView.removeEventListener('click', openImage);
-  removeCard.remove();
-};
-
 //создание карточки
 function createCard(link, name) {
   const cardElement = cardTemplate.content.cloneNode(true);
   const cardImage = cardElement.querySelector('.card__image');
-  const btnLike = cardElement.querySelector(".card__like");
-  const btnDelete = cardElement.querySelector(".card__delete");
   cardImage.src = link;
   cardImage.alt = name;
   cardElement.querySelector(".card__title").textContent = name;
-  btnLike.addEventListener("click", cardLike);
-  btnDelete.addEventListener("click", cardDelete);
-  cardImage.addEventListener("click", openImage);
   return cardElement;
-};
-
-//прогон массива
-function addPlaces(initialCards) {
-  initialCards.forEach(function (item) {
-    cards.append(createCard(item.link, item.name));
-  });
 };
 
 //сохранение профиля
@@ -178,5 +141,4 @@ cardClose.addEventListener("click", () => popupWindow(popupCard));
 formProfile.addEventListener("submit", formSubmitHandler);
 placeForm.addEventListener("submit", placeSubmitHandler);
 
-//загрузка карточек
-addPlaces(initialCards);
+export { popupWindow };
