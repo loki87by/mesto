@@ -1,36 +1,11 @@
-//массив картинок
-const initialCards = [
-  {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import { initialCards, popupWindow } from './index.js';
 
 //карточка
-class Card {
-  constructor(title, image) {
-    this._title = title;
-    this._image = image;
+export class Card {
+  constructor(data, cardSelector) {
+    this._title = data.name;
+    this._image = data.link;
+    this._cardSelector = cardSelector;
   }
 
   //лайк
@@ -86,6 +61,3 @@ class Card {
     return this._element;
   }
 }
-
-import { popupWindow } from './index.js';
-export { initialCards, Card }

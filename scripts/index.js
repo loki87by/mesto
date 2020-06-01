@@ -1,3 +1,7 @@
+export { initialCards, popupWindow };
+import { Card } from "./Card.js"
+import { FormValidator } from "./FormValidator.js"
+
 //переменные
 const root = document.querySelector('.root');
 const page = document.querySelector('.page');
@@ -26,6 +30,34 @@ const popups = Array.from(document.querySelectorAll('.popup__container'));
 const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
 const borderError = Array.from(document.querySelectorAll('.popup__text'));
 const buttonError = Array.from(document.querySelectorAll('.popup__button'));
+
+//массив картинок
+const initialCards = [
+  {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 
 // функция обнуления ошибок
 function cleanError() {
@@ -114,9 +146,11 @@ function clearInputs() {
 //новая карточка
 function placeSubmitHandler(evt) {
   evt.preventDefault();
-  this._image = linkInput.value;
-  this._title = placeInput.value;
-  const card = new Card(this._title, this._image);
+  const object = {}
+  object.link = linkInput.value;
+  object.name = placeInput.value;
+  //this._cardSelector = '.card';
+  const card = new Card(object, '#template');
   document.querySelector('.cards').prepend(card.generateCard());
   clearInputs();
   popupWindow(addCards);
@@ -125,7 +159,7 @@ function placeSubmitHandler(evt) {
 //прогон массива
 function addPlaces(initialCards) {
   initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link);
+    const card = new Card(item, '#template');
     document.querySelector('.cards').prepend(card.generateCard());
   });
 };
@@ -159,7 +193,3 @@ function validation() {
 }
 
 validation();
-
-export { popupWindow };
-import { initialCards, Card } from "./Card.js"
-import { FormValidator } from "./FormValidator.js"
