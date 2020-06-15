@@ -1,6 +1,9 @@
 export { initialCards, popupWindow };
 import { Card } from "./Card.js"
 import { FormValidator } from "./FormValidator.js"
+// index.js
+
+import './pages/index.css'; // добавьте импорт главного файла стилей
 
 //переменные
 const root = document.querySelector('.root');
