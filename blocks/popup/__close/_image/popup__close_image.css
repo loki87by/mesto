@@ -1,0 +1,19 @@
+.popup__close_image {
+  position: relative;
+  grid-area: button;
+  -ms-grid-row-align: center;
+    align-self: center;
+  -ms-grid-column-align: center;
+    justify-self: center;
+}
+/*
+.popup__image-close:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 557px) {
+  .popup__close_image {
+    width: 30px;
+    height: 30px;
+  }
+}*/
