@@ -1,7 +1,7 @@
-//import { initialCards, popupWindow } from './index.js';
+//import Popup from './Popup.js';
 
 //карточка
-export class Card {
+export default class Card {
   constructor(cardSelector, {data, handleCardClick}) {
     this._title = data.name;
     this._image = data.link;
@@ -11,13 +11,13 @@ export class Card {
 
   //клонируем разметку
   _getTemplate() {
-    const cardElement = document
-      .getElementById('card')
+    const cardElement = this._cardSelector
       .content
       .querySelector('.card')
       .cloneNode(true);
     this._element = cardElement;
     return this._element;
+    //return cardElement
   }
   
   //расставляем слушатели
@@ -35,11 +35,15 @@ export class Card {
 
   //создание карточки
   generateCard() {
+    //this._element = 
     this._getTemplate();
     this._setEventListeners();
-    this._element.querySelector('.card__image').src = this._image;
-    this._element.querySelector('.card__image').alt = this._image;
-    this._element.querySelector('.card__title').textContent = this._title;
+    const cardImage = this._element.querySelector('.card__image');
+    const cardTitle = this._element.querySelector('.card__title');
+    cardTitle.textContent = this._title;
+    cardImage.src = this._image;
+    cardImage.alt = this._image;
+    //this._handleCardClick();
     return this._element;
   }
 
@@ -54,12 +58,12 @@ export class Card {
   }
 
   //попап
-  //_open() {
+  //_handleCardClick() {
     //const cardOpen = document.querySelector('.popup__image');
-  //  const cardTitle = document.querySelector('.popup__image-title');
-//    cardTitle.textContent = this._title;
+//    const cardTitle = document.querySelector('.popup__image-title');
+  //  cardTitle.textContent = this._title;
     //cardOpen.src = this._image;
-  //  cardOpen.alt = this._title;
-    //popupWindow(popupCard);
-  //}
+//    cardOpen.alt = this._title;
+  //  cardOpen.open();
+//  }
 }

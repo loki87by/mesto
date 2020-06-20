@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
   constructor(data, element) {
     this._inputSelector = data.inputSelector; //инпуты
     this._submitButtonSelector = data.submitButtonSelector; //кнопка сохранить/создать
