@@ -30,8 +30,8 @@ export default class PopupWithForm extends Popup{
 
   _getInputValues() {
     const item = {
-      name: this._popupSelector.querySelector('.popup__text_type_name').value,
-      link: this._popupSelector.querySelector('.popup__text_type_activity').value
+      name: this.popupSelector.querySelector('.popup__text_type_name').value,
+      link: this.popupSelector.querySelector('.popup__text_type_activity').value
     };
     return item;
   }

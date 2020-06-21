@@ -8,34 +8,34 @@ import PopupWithForm from "./PopupWithForm.js"
 import UserInfo from "./UserInfo.js"
 
 //переменные
-const root = document.querySelector('.root');
+//const root = document.querySelector('.root');
 const page = document.querySelector('.page');
 const content = page.querySelector('.content');
-const popup = root.querySelector('.popup');
-//export const popupListSelector = document.querySelector('.popup');
-const container = popup.querySelector('.popup__container');
+//const popup = root.querySelector('.popup');
+export const popupSelector = document.querySelector('.popup');
+//const container = popup.querySelector('.popup__container');
 const popupProfile = document.getElementById('#popupProfile');
 const addCards = document.getElementById('#addCards');
 export const popupCard = document.getElementById('#popupCard');
-const formProfile = document.getElementById('#form1');
+//const formProfile = document.getElementById('#form1');
 const profile = content.querySelector('.profile');
 const profileInfo = profile.querySelector('.profile__info');
 const editButton = profileInfo.querySelector('.profile__button_type_edit');
-const closePopup = container.querySelector('.popup__close');
+//const closePopup = container.querySelector('.popup__close');
 const addButton = profile.querySelector('.profile__button_type_add');
-const closeAdds = document.getElementById('closeAdds');
-const closeButton = container.querySelector('.popup__close');
-const profileAuthor = profile.querySelector('.profile__title');
-const nameInput = container.querySelector('.popup__text_type_name');
-const profileActivity = profile.querySelector('.profile__subtitle');
-const activityInput = container.querySelector('.popup__text_type_activity');
-const placeForm = document.querySelector('#form2');
-const placeInput = placeForm.querySelector('.popup__text_type_place');
-const linkInput = placeForm.querySelector('.popup__text_type_link');
+//const closeAdds = document.getElementById('closeAdds');
+//const closeButton = container.querySelector('.popup__close');
+export const profileAuthor = profile.querySelector('.profile__title');
+//const nameInput = container.querySelector('.popup__text_type_name');
+export const profileActivity = profile.querySelector('.profile__subtitle');
+//const activityInput = container.querySelector('.popup__text_type_activity');
+//const placeForm = document.querySelector('#form2');
+//const placeInput = placeForm.querySelector('.popup__text_type_place');
+//const linkInput = placeForm.querySelector('.popup__text_type_link');
 const popups = Array.from(document.querySelectorAll('.popup__container'));
-const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
-const borderError = Array.from(document.querySelectorAll('.popup__text'));
-const buttonError = Array.from(document.querySelectorAll('.popup__button'));
+//const spanError = Array.from(document.querySelectorAll('.popup__text-error'));
+//const borderError = Array.from(document.querySelectorAll('.popup__text'));
+//const buttonError = Array.from(document.querySelectorAll('.popup__button'));
 export const cardListSelector = document.querySelector('.cards')
 const template = document.getElementById('card');
 
@@ -88,7 +88,7 @@ const items = [
 // 
 const popupWithImage = new PopupWithImage(popupCard);
 const formImage = () => {
-  imageForm._deleteInputValues();
+  //imageForm._deleteInputValues();
   imageForm.open()
 }
 

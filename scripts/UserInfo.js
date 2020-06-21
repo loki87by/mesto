@@ -1,21 +1,21 @@
-const popup = document.querySelector('.popup');
-const container = popup.querySelector('.popup__container');
-const nameInput = container.querySelector('.popup__text_type_name');
-const activityInput = container.querySelector('.popup__text_type_activity');
+
 
 export default class UserInfo {
-  constructor(name, info) {
-    this._name = name;
-    this._info = info;
+  constructor(author) {
+      this._name = author.profileAuthor;
+      this._info = author.profileActivity;
   }
 
   getUserInfo() {
-    nameInput.value = this._name.textContent;
-    activityInput.value = this._info.textContent;
+      const userInfo = {
+          name: this._name.textContent,
+          info: this._info.textContent
+      }
+      return userInfo;
   }
 
-  setUserInfo() {
-    this._name.textContent = nameInput.value;
-    this._info.textContent = activityInput.value;
+  setUserInfo(data) {
+      this._name.textContent = data.name;
+      this._info.textContent = data.link;
   }
 }

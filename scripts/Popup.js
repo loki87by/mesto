@@ -4,6 +4,7 @@ export default class Popup {
     this.popupSelector = popupSelector;
    // this.open = open;
   //  this.close = close;
+    console.log(this)
   }
   
   _setEventListeners() {
@@ -26,8 +27,8 @@ export default class Popup {
   }
   
   open() {
-    this._setEventListeners();
     this.popupSelector.classList.add('popup_opened');
+    this._setEventListeners();
   }
 
   close() {
