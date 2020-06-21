@@ -1,5 +1,3 @@
-//import Popup from './Popup.js';
-
 //карточка
 export default class Card {
   constructor(cardSelector, {data, handleCardClick}) {
@@ -17,7 +15,6 @@ export default class Card {
       .cloneNode(true);
     this._element = cardElement;
     return this._element;
-    //return cardElement
   }
   
   //расставляем слушатели
@@ -35,7 +32,6 @@ export default class Card {
 
   //создание карточки
   generateCard() {
-    //this._element = 
     this._getTemplate();
     this._setEventListeners();
     const cardImage = this._element.querySelector('.card__image');
@@ -43,7 +39,6 @@ export default class Card {
     cardTitle.textContent = this._title;
     cardImage.src = this._image;
     cardImage.alt = this._image;
-    //this._handleCardClick();
     return this._element;
   }
 
@@ -56,14 +51,4 @@ export default class Card {
   _delete() {
     this._element.remove();
   }
-
-  //попап
-  //_handleCardClick() {
-    //const cardOpen = document.querySelector('.popup__image');
-//    const cardTitle = document.querySelector('.popup__image-title');
-  //  cardTitle.textContent = this._title;
-    //cardOpen.src = this._image;
-//    cardOpen.alt = this._title;
-  //  cardOpen.open();
-//  }
 }

@@ -1,9 +1,8 @@
-//import { popupSelector } from "./index.js"
+
 export default class Popup {
   constructor(popupSelector) {
     this.popupSelector = popupSelector;
-   // this.open = open;
-  //  this.close = close;
+    
     console.log(this)
   }
   
