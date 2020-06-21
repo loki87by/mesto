@@ -1,11 +1,12 @@
-import { initialCards, popupWindow } from './index.js';
+//import { initialCards, popupWindow } from './index.js';
 
 //карточка
 export class Card {
-  constructor(data, cardSelector) {
+  constructor({ data, handleCardClick }, cardSelector) {
     this._title = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   //лайк
@@ -43,8 +44,7 @@ export class Card {
 
   //отрисовка в доме
   _getTemplate() {
-    const cardElement = document
-      .getElementById('card')
+    const cardElement = this._cardSelector
       .content
       .querySelector('.card')
       .cloneNode(true);
