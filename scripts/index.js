@@ -9,10 +9,10 @@ import UserInfo from "./UserInfo.js"
 //переменны
 const page = document.querySelector('.page');
 const content = page.querySelector('.content');
-const popup = document.querySelector('.popup');
-const popupProfile = document.getElementById('#popupProfile');
-const addCards = document.getElementById('#addCards');
-export const popupCard = document.getElementById('#popupCard');
+export const popup = document.querySelector('.popup');
+const popupProfile = document.getElementById('popupProfile');
+const addCards = document.getElementById('addCards');
+export const popupCard = document.getElementById('popupCard');
 const profile = content.querySelector('.profile');
 const profileInfo = profile.querySelector('.profile__info');
 const editButton = profileInfo.querySelector('.profile__button_type_edit');
@@ -22,6 +22,8 @@ export const profileActivity = profile.querySelector('.profile__subtitle');
 const popups = Array.from(document.querySelectorAll('.popup__container'));
 const cardListSelector = document.querySelector('.cards')
 const template = document.getElementById('card');
+export const nameInput = document.querySelector(".popup__text_type_name"); //имя в инпут
+export const activityInput = document.querySelector(".popup__text_type_activity"); 
 
 //массив картинок
 const items = [
@@ -66,7 +68,7 @@ const items = [
 
 const popupWithImage = new PopupWithImage(popupCard);
 const formImage = () => {
-  //imageForm._deleteInputValues()
+  imageForm._deleteInputValues()
   imageForm.open()
 }
 
@@ -76,10 +78,12 @@ export const formProfileInfo = {
 };
 
 const userInfo = new UserInfo(formProfileInfo);
+
 const formInfo = new PopupWithForm(popupProfile, {
   submitForm: (item) => {
     userInfo.setUserInfo(item);
       formInfo.close();
+   //// clearInputs()
   }
 });
 
@@ -90,15 +94,22 @@ const editProfile = () => {
   nameInput.value = infoAuthor.name;
   activityInput.value = infoAuthor.info;
   formInfo.open();
-  //cleanError(popupProfile);
+  cleanError(popupProfile);
 }
+
+// функция обнуления ошибок
+function cleanError(form) {
+  const buttonSave = form.querySelector('.popup__button_type_save');
+  form.querySelectorAll('.popup__text-error').forEach((span) => {
+    span.textContent = '';
+  })}
 
 const cardList = new Section({
   items, renderer: (item) => {
     const card = new Card (template, {
       data: item, handleCardClick: () => {
-        const popupWithImage = new PopupWithImage(item, popupCard)
-        popupWithImage.open()
+        const popupWithImage = new PopupWithImage(popupCard, item)
+        popupWithImage.open(item)
       }
   });
     const cardElement = card.generateCard();
@@ -114,10 +125,10 @@ cardList.renderItems(items);
     //cleanError(addCards);
 
 //чистка инпутов
-//function clearInputs() {
-  //linkInput.value = "";
-  //placeInput.value = "";
-//};
+function clearInputs() {
+  linkInput.value = "";
+  placeInput.value = "";
+};
 
 //валидация форм
 function validation() {

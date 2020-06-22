@@ -1,9 +1,8 @@
-
+//import { popup } from "./index.js"
 export default class Popup {
   constructor(popupSelector) {
     this.popupSelector = popupSelector;
     
-    console.log(this)
   }
   
   _setEventListeners() {
