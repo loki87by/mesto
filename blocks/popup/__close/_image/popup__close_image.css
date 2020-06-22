@@ -1,10 +1,11 @@
 .popup__close_image {
-  position: relative;
   grid-area: button;
   -ms-grid-row-align: center;
     align-self: center;
   -ms-grid-column-align: center;
     justify-self: center;
+  right: 34px;
+  top: 34px;
 }
 /*
 .popup__image-close:hover {

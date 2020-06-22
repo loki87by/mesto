@@ -30,7 +30,7 @@ export default class Card {
     });
   }
 
-  //создание карточки
+  //создаем карточки
   generateCard() {
     this._getTemplate();
     this._setEventListeners();

@@ -1,32 +1,21 @@
-
+//импорты
 import Popup from "./Popup.js";
+import { formObject } from "./index.js"
 
-const formObject = {
-  formSelector: ".popup__container",
-  inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_error",
-  inputErrorClass: "popup__text_error",
-  errorClass: "popup__text-error",
-};
-
+//попап с формой
 export default class PopupWithForm extends Popup{
   constructor(popupSelector, {submitForm}) {
     super(popupSelector);
     this.submitForm = submitForm;
-    };
+  };
   
-
+  //расставляем слушатели
   _setEventListeners() {
     this.popupSelector.addEventListener('submit', this.submitform);
     super._setEventListeners();
   }
 
-  //_setSubmitForm(evt) {
-    //evt.preventDefault();
-  //  this.submitForm(this._getInputValues());
-//}
-
+  //получаем введенные данные
   _getInputValues() {
     const item = {
       name: this.popupSelector.querySelector('.popup__text_type_name').value,
@@ -35,6 +24,7 @@ export default class PopupWithForm extends Popup{
     return item;
   }
 
+  //чистим поля
   _deleteInputValues() {
     const item = {
       name: this.popupSelector.querySelector(".popup__text_type_name").value = '',
@@ -42,6 +32,7 @@ export default class PopupWithForm extends Popup{
     }
   }
 
+  //снимаем ошибки валидации
   _cleaner() {
     const errors = Array.from(this.popupSelector.querySelectorAll('.popup__text-error'));
     const inputs = Array.from(this.popupSelector.querySelectorAll('.popup__text'));
@@ -54,18 +45,11 @@ export default class PopupWithForm extends Popup{
     });
   }
 
+  //закрытие попапа
   close() {
     this.popupSelector.removeEventListener('submit', this.submitForm);
     this._cleaner();
     this._deleteInputValues();
     super.close();
-  }
-
-  _handleEscClose(evt) {
-    super._handleEscClose(evt);
-}
-
-  open() {
-    super.open();
   }
 }
