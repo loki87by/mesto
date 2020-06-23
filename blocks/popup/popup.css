@@ -1,14 +1,12 @@
 @import url('./__container/popup__container.css');
 @import url('./__image-container/popup__image-container.css');
 @import url('./__close/popup__close.css');
-@import url('./__image-close/popup__image-close.css');
+@import url('./__close/_image/popup__close_image.css');
 @import url('./__title/popup__title.css');
 @import url('./__text/popup__text.css');
 @import url('./__text/_error/popup__text_error.css');
 @import url('./__text/_type/popup__text_type_name.css');
 @import url('./__text/_type/popup__text_type_activity.css');
-@import url('./__text/_type/popup__text_type_place.css');
-@import url('./__text/_type/popup__text_type_link.css');
 @import url('./__text-error/popup__text-error.css');
 @import url('./__text-error/_type/popup__text-error_type_bottom.css');
 @import url('./__button/popup__button.css');
