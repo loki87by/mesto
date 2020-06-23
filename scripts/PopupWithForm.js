@@ -16,7 +16,7 @@ export default class PopupWithForm extends Popup{
   }
 
   //получаем введенные данные
-  _getInputValues() {
+  getInputValues() {
     const item = {
       name: this.popupSelector.querySelector('.popup__text_type_name').value,
       link: this.popupSelector.querySelector('.popup__text_type_activity').value
@@ -25,7 +25,7 @@ export default class PopupWithForm extends Popup{
   }
 
   //чистим поля
-  _deleteInputValues() {
+  deleteInputValues() {
     const item = {
       name: this.popupSelector.querySelector(".popup__text_type_name").value = '',
       link: this.popupSelector.querySelector(".popup__text_type_activity").value = ''
@@ -49,7 +49,7 @@ export default class PopupWithForm extends Popup{
   close() {
     this.popupSelector.removeEventListener('submit', this.submitForm);
     this._cleaner();
-    this._deleteInputValues();
+    this.deleteInputValues();
     super.close();
   }
 }

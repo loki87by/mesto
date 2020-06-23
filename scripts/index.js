@@ -66,26 +66,42 @@ export const items = [
 ];
 
 //добавление карточек
+//const newImage = function () {
 const imageForm = new PopupWithForm(addCards, {
-  submitform: (item) => {
+  submitForm: (item) => {
     const card = new Card(template, {
       data: item, handleCardClick: () => {
         popupWithImage.open(item);
       }
     });
     const cardElement = card.generateCard();
-    CardList.addItem(cardElement);
+    cardList.addItem(cardElement);
     imageForm.close();
   }
 });
+
+//секция карточек  
+const cardList = new Section({
+  items, renderer: (item) => {
+    const card = new Card(template, {
+      data: item, handleCardClick: () => {
+        const popupWithImage = new PopupWithImage(popupCard, item)
+        popupWithImage.open(item)
+      }
+  });
+    const cardElement = card.generateCard();
+    cardList.addItem(cardElement);
+  }
+}, cardListSelector);
 
 //попап с картинкой
 const popupWithImage = new PopupWithImage(popupCard);
 
 //попап добавления картинки
-const formImage = () => {
-  imageForm._deleteInputValues()
-  imageForm.open()
+const formImage = function() {
+  imageForm.deleteInputValues()
+  imageForm.open();
+  openImageForm()
 }
 
 //пользовательские данные
@@ -115,27 +131,14 @@ function cleanError(form) {
     span.textContent = '';
   })}
 
-//секция карточек  
-const cardList = new Section({
-  items, renderer: (item) => {
-    const card = new Card(template, {
-      data: item, handleCardClick: () => {
-        const popupWithImage = new PopupWithImage(popupCard, item)
-        popupWithImage.open(item)
-      }
-  });
-    const cardElement = card.generateCard();
-    cardList.addItem(cardElement);
-  }
-}, cardListSelector);
-
 //прогон массива
 cardList.renderItems(items);
 
-//  const openImageForm = () => {
-    //imageForm.deleteInputValues();
-  //  imageForm.open();
-    //cleanError(addCards);
+const openImageForm = function() {
+  imageForm.deleteInputValues();
+  imageForm.open();
+  cleanError(addCards);
+}
 
 //чистка инпутов
 function clearInputs() {
