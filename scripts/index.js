@@ -66,7 +66,6 @@ export const items = [
 ];
 
 //добавление карточек
-//const newImage = function () {
 const imageForm = new PopupWithForm(addCards, {
   submitForm: (item) => {
     const card = new Card(template, {

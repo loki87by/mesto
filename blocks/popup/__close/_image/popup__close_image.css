@@ -4,10 +4,10 @@
     align-self: center;
   -ms-grid-column-align: center;
     justify-self: center;
-  right: 34px;
-  top: 34px;
+  right: 0px;
+  top: 0px;
 }
-/*
+
 .popup__image-close:hover {
   opacity: 0.6;
 }
@@ -17,4 +17,4 @@
     width: 30px;
     height: 30px;
   }
-}*/
+}

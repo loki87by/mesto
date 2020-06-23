@@ -11,9 +11,13 @@ export default class PopupWithForm extends Popup{
   
   //расставляем слушатели
   _setEventListeners() {
-    this.popupSelector.addEventListener('submit', this.submitform);
     super._setEventListeners();
-  }
+    this.popupSelector.querySelector('.popup__container').addEventListener('submit', (evt) => { // добавляет обработчик сабмита формы. 
+      evt.preventDefault();
+      this.submitForm(this.getInputValues());
+      this.close();
+	    });
+    }
 
   //получаем введенные данные
   getInputValues() {
@@ -47,9 +51,9 @@ export default class PopupWithForm extends Popup{
 
   //закрытие попапа
   close() {
-    this.popupSelector.removeEventListener('submit', this.submitForm);
-    this._cleaner();
-    this.deleteInputValues();
+    this.popupSelector.querySelector('.popup__container').reset();
+    //this._cleaner();
+    //this.deleteInputValues();
     super.close();
   }
 }
