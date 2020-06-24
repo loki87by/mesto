@@ -1,6 +1,6 @@
 //импорты
 import Popup from "./Popup.js";
-import { formObject } from "./index.js"
+import { formObject } from "../index.js"
 
 //попап с формой
 export default class PopupWithForm extends Popup{
