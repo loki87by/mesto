@@ -1,13 +1,13 @@
 //импорты
-import './pages/index.css';
-import custo from './images/kusto.jpg';
-import logo from './images/mesto.png';
-import Card from "./scripts/Card.js";
-import FormValidator from "./scripts/FormValidator.js";
-import Section from "./scripts/Section.js";
-import PopupWithImage from "./scripts/PopupWithImage.js";
-import PopupWithForm from "./scripts/PopupWithForm.js";
-import UserInfo from "./scripts/UserInfo.js";
+import './index.css';
+import custo from '../images/kusto.jpg';
+import logo from '../images/mesto.png';
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 
 //переменны
 export const page = document.querySelector('.page');
@@ -25,7 +25,7 @@ export const profileActivity = profile.querySelector('.profile__subtitle');
 export const popups = Array.from(document.querySelectorAll('.popup__container'));
 export const cardListSelector = document.querySelector('.cards')
 export const template = document.getElementById('card');
-export const nameInput = document.querySelector(".popup__text_type_name"); //имя в инпут
+export const nameInput = document.querySelector(".popup__text_type_name");
 export const activityInput = document.querySelector(".popup__text_type_activity"); 
 export const formProfileInfo = {
   profileAuthor: document.querySelector('.profile__title'),
@@ -38,7 +38,7 @@ export const formObject = {
   inactiveButtonClass: "popup__button_error",
   inputErrorClass: "popup__text_error",
   errorClass: "popup__text-error",
-};
+}
 
 //массив картинок
 export const items = [
