@@ -29,7 +29,7 @@ export default class PopupWithForm extends Popup{
   }
 
   //чистим поля
-  deleteInputValues() {
+  _deleteInputValues() {
     const item = {
       name: this.popupSelector.querySelector(".popup__text_type_name").value = '',
       link: this.popupSelector.querySelector(".popup__text_type_activity").value = ''
@@ -52,8 +52,7 @@ export default class PopupWithForm extends Popup{
   //закрытие попапа
   close() {
     this.popupSelector.querySelector('.popup__container').reset();
-    //this._cleaner();
-    //this.deleteInputValues();
+    this._deleteInputValues();
     super.close();
   }
 }

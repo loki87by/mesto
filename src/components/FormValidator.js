@@ -16,8 +16,16 @@ export default class FormValidator {
     errorElement.classList.add(this._errorClass);
   };
 
+  
+  //обнуление ошибок
+  cleanError(form) {
+    form.querySelectorAll('.popup__text-error').forEach((span) => {
+    span.textContent = '';
+  })}
+
+
   // Функция, очистки ошибки
-  _hideInputError(formElement, inputElement) {
+  hideInputError(formElement, inputElement) {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
@@ -33,7 +41,7 @@ export default class FormValidator {
         inputElement.validationMessage,
         );
     } else {
-      this._hideInputError(formElement, inputElement);
+      this.hideInputError(formElement, inputElement);
     }
   };
 

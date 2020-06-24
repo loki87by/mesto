@@ -4,7 +4,7 @@
   "description": "entry point: (index.js)",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rm -rf dist && webpack",
     "dev": "webpack-dev-server --open --watch"
   },
   "repository": {
@@ -34,7 +34,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "jquery": "^3.5.1"
+    "core-js": "^3.6.5"
   }
 }

@@ -1,7 +1,5 @@
 //импорты
 import './index.css';
-import custo from '../images/kusto.jpg';
-import logo from '../images/mesto.png';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -20,8 +18,6 @@ export const profile = content.querySelector('.profile');
 export const profileInfo = profile.querySelector('.profile__info');
 export const editButton = profileInfo.querySelector('.profile__button_type_edit');
 export const addButton = profile.querySelector('.profile__button_type_add');
-export const profileAuthor = profile.querySelector('.profile__title');
-export const profileActivity = profile.querySelector('.profile__subtitle');
 export const popups = Array.from(document.querySelectorAll('.popup__container'));
 export const cardListSelector = document.querySelector('.cards')
 export const template = document.getElementById('card');
@@ -101,9 +97,7 @@ const popupWithImage = new PopupWithImage(popupCard);
 
 //попап добавления картинки
 const formImage = function() {
-  imageForm.deleteInputValues()
   imageForm.open();
-  openImageForm()
 }
 
 //пользовательские данные
@@ -123,36 +117,17 @@ const editProfile = () => {
   nameInput.value = infoAuthor.name;
   activityInput.value = infoAuthor.info;
   formInfo.open();
-  cleanError(popupProfile);
 }
-
-//обнуление ошибок
-function cleanError(form) {
-  const buttonSave = form.querySelector('.popup__button_type_save');
-  form.querySelectorAll('.popup__text-error').forEach((span) => {
-    span.textContent = '';
-  })}
 
 //прогон массива
 cardList.renderItems(items);
-
-const openImageForm = function() {
-  imageForm.deleteInputValues();
-  imageForm.open();
-  cleanError(addCards);
-}
-
-//чистка инпутов
-function clearInputs() {
-  linkInput.value = "";
-  placeInput.value = "";
-};
 
 //валидация форм
 function validation() {
   popups.forEach((form) => {
     const valid = new FormValidator(formObject, form);
       valid.enableValidation();
+      valid.cleanError(form);
   });
 }
 
