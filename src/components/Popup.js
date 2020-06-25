@@ -27,7 +27,12 @@ export default class Popup {
   open() {
     this.popupSelector.classList.add('popup_opened');
     document.addEventListener("keydown", this._handleEscClose);
-    document.addEventListener("click", this._handleClickClose);
+    const inputSelector = this.popupSelector.querySelectorAll('.popup__text');
+    const submitButton = this.popupSelector.querySelector('.popup__button');
+    if((!inputSelector[0].value) || (!inputSelector[1].value)) {
+      submitButton.classList.add('popup__button_error');
+      submitButton.setAttribute('disabled', 'true');
+    }
   }
 
   //закрытие попапа

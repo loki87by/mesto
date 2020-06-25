@@ -1,6 +1,5 @@
 //импорты
 import Popup from "./Popup.js";
-import { formObject } from "../pages/index.js"
 
 //попап с формой
 export default class PopupWithForm extends Popup{
@@ -14,45 +13,24 @@ export default class PopupWithForm extends Popup{
     super._setEventListeners();
     this.popupSelector.querySelector('.popup__container').addEventListener('submit', (evt) => { // добавляет обработчик сабмита формы. 
       evt.preventDefault();
-      this.submitForm(this.getInputValues());
+      this.submitForm(this._getInputValues());
       this.close();
 	    });
     }
 
   //получаем введенные данные
-  getInputValues() {
+  _getInputValues() {
+    this._inputSelector = this.popupSelector.querySelectorAll('.popup__text');
     const item = {
-      name: this.popupSelector.querySelector('.popup__text_type_name').value,
-      link: this.popupSelector.querySelector('.popup__text_type_activity').value
-    };
-    return item;
-  }
-
-  //чистим поля
-  _deleteInputValues() {
-    const item = {
-      name: this.popupSelector.querySelector(".popup__text_type_name").value = '',
-      link: this.popupSelector.querySelector(".popup__text_type_activity").value = ''
+      name: this._inputSelector[0].value,
+      link: this._inputSelector[1].value
     }
-  }
-
-  //снимаем ошибки валидации
-  _cleaner() {
-    const errors = Array.from(this.popupSelector.querySelectorAll('.popup__text-error'));
-    const inputs = Array.from(this.popupSelector.querySelectorAll('.popup__text'));
-    errors.forEach((span) => {
-      span.classList.remove(formObject.errorClass);
-      span.textContent = '';
-    });
-    inputs.forEach((input) => {
-     input.classList.remove(formObject.inputErrorClass);
-    });
+    return item;
   }
 
   //закрытие попапа
   close() {
     this.popupSelector.querySelector('.popup__container').reset();
-    this._deleteInputValues();
     super.close();
   }
 }
