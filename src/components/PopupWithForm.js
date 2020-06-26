@@ -20,12 +20,12 @@ export default class PopupWithForm extends Popup{
 
   //получаем введенные данные
   _getInputValues() {
-    this._inputSelector = this.popupSelector.querySelectorAll('.popup__text');
-    const item = {
-      name: this._inputSelector[0].value,
-      link: this._inputSelector[1].value
-    }
-    return item;
+    this._inputList = this.popupSelector.querySelectorAll('.popup__text');
+    this._inputValues = {};
+    this._inputList.forEach((input) => {
+      this._inputValues[input.name] = input.value;
+    });
+    return this._inputValues;
   }
 
   //закрытие попапа
