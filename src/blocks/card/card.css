@@ -4,6 +4,7 @@
 @import url('./__title/card__title.css');
 @import url('./__like/card__like.css');
 @import url('./__like/_type/card__like_type_active.css');
+@import url('./__counter/card__counter.css');
 
 .card {
   position: relative;
@@ -16,4 +17,8 @@
       flex-direction: column;
   max-width: 282px;
   height: 362px;
+}
+
+.card:hover{
+  opacity: .8;
 }

@@ -36,6 +36,26 @@
       <button type="submit" class="popup__button popup__button_type_save">Создать</button>
     </form>
   </section>
+
+  <!--обновление аватара-->
+  <section class="popup" id="avatar">
+    <form class="popup__container" name="avatar" method="get" action="#" id="form3" novalidate>
+      <button class="popup__close" type="reset" aria-label="Закрыть" id="closeAvatar"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <input type="url" placeholder="Ссылка на картинку" required class="popup__text popup__text_type_activity popup__text_type_avatar" id="link-input" name="link">
+      <span class="popup__text-error" id="link-input-error">Введите адрес сайта.</span>
+      <button type="submit" class="popup__button popup__button_type_save">Сохранить</button>
+    </form>
+  </section>
+
+  <!--подтверждение-->
+  <section class="popup" id="confirm">
+    <div class="popup__container" name="confirm" method="get" action="#" id="confirm">
+      <button class="popup__close" type="reset" aria-label="Закрыть" id="closeConfirm"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button type="submit" class="popup__button popup__button_type_confirm">Да</button>
+    </div>
+  </section>
     
   <!--разворот картинки-->
   <div class="popup popup_imageUpdates" id="popupCard">
@@ -56,6 +76,7 @@
       <!--профиль-->
       <div class="profile">
         <img class="profile__photo" src="./images/kusto.jpg" alt="Жак-Ив-Кусто">
+        <div class="profile__photo profile__photo_change"></div>
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__button profile__button_type_edit" type="button"></button>
@@ -73,6 +94,7 @@
             <div class="card__bottom">
               <h2 class="card__title"></h2>
               <button class="card__like" type="button" aria-label="Мне нравится"></button>
+              <h3 class="card__counter"></h3>
             </div>
           </div>
         </template>

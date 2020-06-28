@@ -1,7 +1,14 @@
 .profile__photo {
+  position: relative;
   max-width: 120px;
   border-radius: 100%;
   margin-right: 30px;
+}
+
+.profile__photo:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url("../../../images/pen.svg");
+  z-index: -1;
 }
 
 @media (max-width: 740px) {

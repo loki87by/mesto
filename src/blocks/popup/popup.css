@@ -7,11 +7,13 @@
 @import url('./__text/_error/popup__text_error.css');
 @import url('./__text/_type/popup__text_type_name.css');
 @import url('./__text/_type/popup__text_type_activity.css');
+@import url('./__text/_type/popup__text_type_avatar.css');
 @import url('./__text-error/popup__text-error.css');
 @import url('./__text-error/_type/popup__text-error_type_bottom.css');
 @import url('./__button/popup__button.css');
 @import url('./__button/_type/popup__button_type_save.css');
 @import url('./__button/_type/popup__button_type_create.css');
+@import url('./__button/_type/popup__button_type_confirm.css');
 @import url('./__button/_error/popup__button_error.css');
 @import url('./__image/popup__image.css');
 @import url('./__image-title/popup__image-title.css');

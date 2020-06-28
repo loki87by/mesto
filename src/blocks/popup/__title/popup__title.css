@@ -1,6 +1,6 @@
 .popup__title {
   max-width: 330px;
-  min-height: 23px;
+  max-height: 23px;
   padding-top: 34px;
   margin: 0;
   margin-left: 36px;

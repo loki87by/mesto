@@ -1,4 +1,5 @@
 @import url('./__photo/profile__photo.css');
+@import url('./__photo/./_change/profile__photo_change.css');
 @import url('./__info/profile__info.css');
 @import url('./__title/profile__title.css');
 @import url('./__subtitle/profile__subtitle.css');
@@ -7,6 +8,7 @@
 @import url('./__button/_type/profile__button_type_add.css');
 
 .profile {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
