@@ -20,7 +20,11 @@ export default class Card {
   //расставляем слушатели
   _setEventListeners() {
     this._element.querySelector('.card__like').addEventListener('click', () => {
-      this._like();
+      this._like()
+      this._yes = this._element.querySelector('.card__like_type_active');
+      this._count = this._yes ? ++this._count : --this._count;
+      this._yes = !this._yes;
+      this._element.querySelector('.card__counter').innerHTML = this._count;
     });
     this._element.querySelector('.card__delete').addEventListener('click', () => {
       this._delete();
@@ -45,6 +49,7 @@ export default class Card {
   //лайк
   _like() {
     this._element.querySelector('.card__like').classList.toggle('card__like_type_active');
+    this._count = this._element.querySelector('.card__counter').innerHTML;
   }
 
   //удаление
