@@ -1,10 +1,11 @@
-
+//const userAvatar = document.querySelector('.profile__photo');
 
 export default class UserInfo {
-  constructor(author) {
-      this._name = author.profileAuthor;
-      this._info = author.profileActivity;
-      this._avatar = author.profilePhoto;
+  constructor(user) {
+      this._name = user.profileAuthor;
+      this._info = user.profileActivity;
+      this._avatar = user.profilePhoto;
+      this.userAvatar = document.querySelector('.profile__photo');
   }
 
   getUserInfo() {
@@ -16,11 +17,24 @@ export default class UserInfo {
       return userInfo;
   }
 
+  writeUserAvatar(data) {
+    this._avatar.src = data.avatar;
+};
+
   setUserInfo(data) {
       this._name.textContent = data.name;
-      this._info.textContent = data.link;
-      this._avatar.textContent = data.avatar;
+      this._info.textContent = data.about;
+      this._avatar.src = data.avatar;
+//      this._avatar.src= data.avatar;
+      this.userAvatar.src = data.avatar;
   }
+
+//  setUser(user) {
+  //  this._name.textContent = user.name;
+    //this._info.textContent = user.about;
+    //this._profileAuthor.id = user._id;
+//    this._avatar.src = user.avatar;
+//}
 
 //  setUserInfo(data) { //принимает новые данные пользователя с сервера и добавляет их на страницу.
   //  this._name.textContent = data.name;

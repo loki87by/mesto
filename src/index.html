@@ -13,7 +13,7 @@
 
   <!--редактирование профиля-->
   <section class="popup" id="popupProfile">
-    <form class="popup__container" name="profileForm" method="get" action="#" id="form1" novalidate>
+    <form class="popup__container" name="profileForm" method="POST" action="#" id="form1" novalidate>
       <button class="popup__close" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <input type="text" placeholder="Имя" value="Жак-Ив-Кусто" required class="popup__text popup__text_type_name" id="name-input" name="name" minlength="2" maxlength="40" pattern="[A-Za-zА-ЯЁа-яё -]{1,}">
@@ -26,7 +26,7 @@
 
   <!--добавка места-->
   <section class="popup" id="addCards">
-    <form class="popup__container" name="card" method="get" action="#" id="form2" novalidate>
+    <form class="popup__container" name="card" method="POST" action="#" id="form2" novalidate>
       <button class="popup__close" type="reset" aria-label="Закрыть" id="closeAdds"></button>
       <h2 class="popup__title">Новое место</h2>
       <input type="text" placeholder="Название" required class="popup__text popup__text_type_name" id="place-input" name="name" minlength="1" maxlength="30">
@@ -39,7 +39,7 @@
 
   <!--обновление аватара-->
   <section class="popup" id="avatar">
-    <form class="popup__container" name="avatar" method="get" action="#" id="form3" novalidate>
+    <form class="popup__container" name="avatar" method="POST" action="#" id="form3" novalidate>
       <button class="popup__close" type="reset" aria-label="Закрыть" id="closeAvatar"></button>
       <h2 class="popup__title">Обновить аватар</h2>
       <input type="url" placeholder="Ссылка на картинку" required class="popup__text popup__text_type_activity popup__text_type_avatar" id="link-input" name="link">
@@ -50,7 +50,7 @@
 
   <!--подтверждение-->
   <section class="popup" id="confirm">
-    <div class="popup__container" name="confirm" method="get" action="#" id="confirm">
+    <div class="popup__container" name="confirm" action="#" id="confirm">
       <button class="popup__close" type="reset" aria-label="Закрыть" id="closeConfirm"></button>
       <h2 class="popup__title">Вы уверены?</h2>
       <button type="submit" class="popup__button popup__button_type_confirm">Да</button>
@@ -75,9 +75,10 @@
     <main class="content">
       <!--профиль-->
       <div class="profile">
-        <img class="profile__photo" src="./images/kusto.jpg" alt="Жак-Ив-Кусто">
-        <div class="profile__photo profile__photo_change"></div>
+        
         <div class="profile__info">
+          <img class="profile__photo" src="./images/kusto.jpg" alt="Жак-Ив-Кусто">
+          <div class="profile__photo profile__photo_change"></div>
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__button profile__button_type_edit" type="button"></button>
           <p class="profile__subtitle">Исследователь океана</p>

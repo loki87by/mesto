@@ -1,18 +1,34 @@
 .profile__info {
-  display: -webkit-box;
+  /*display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
   -ms-flex-align: start;
     align-items: flex-start;
   -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    flex-wrap: wrap;*/
+  display: grid;
+  grid-template-areas: 
+  "avatar name edit"
+  "avatar info info";
+  grid-template-rows: max-content max-content;
+  grid-template-columns: max-content minmax(min-content, 285px) 1fr;
   max-width: 336px;
-  margin-right: calc(100% - 636px);
+ /* margin-right: calc(100% - 636px);*/
 }
 
 @media (max-width: 740px) {
   .profile__info {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+      align-items: flex-start;
+    -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    justify-content: center;
     max-width: 280px;
     min-height: 66px;
     margin: auto;
