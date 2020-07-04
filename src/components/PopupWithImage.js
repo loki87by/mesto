@@ -1,4 +1,4 @@
-//импорты
+//импорт родителя
 import Popup from "./Popup.js"
 
 //попап с картинкой
@@ -9,10 +9,8 @@ export default class PopupWithImage extends Popup {
     this.bigImageCaption = document.querySelector('.popup__image-title');
   }
 
-  //открытие
+  //разворот
   open(data) {
-//    const bigImage = document.querySelector('.popup__image');
-  //  const bigImageCaption = document.querySelector('.popup__image-title');
     this.bigImage.src = data.link;
     this.bigImage.alt = data.name;
     this.bigImageCaption.textContent = data.name;

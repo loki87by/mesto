@@ -16,13 +16,12 @@ export default class FormValidator {
     errorElement.classList.add(this._errorClass);
   };
 
-  
   //обнуление ошибок
   cleanError(form) {
     form.querySelectorAll('.popup__text-error').forEach((span) => {
-    span.textContent = '';
-  })}
-
+      span.textContent = '';
+    })
+  }
 
   // Функция, очистки ошибки
   hideInputError(formElement, inputElement) {
@@ -36,10 +35,10 @@ export default class FormValidator {
   _checkInputValidity(formElement, inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(
-        formElement,
-        inputElement,
-        inputElement.validationMessage,
-        );
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      );
     } else {
       this.hideInputError(formElement, inputElement);
     }
@@ -78,6 +77,6 @@ export default class FormValidator {
 
   //активаия валидации
   enableValidation() {
-   this._setEventListeners(this._element);
+    this._setEventListeners(this._element);
   };
 };

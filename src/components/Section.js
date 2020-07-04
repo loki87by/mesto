@@ -1,7 +1,6 @@
 //секция
 export default class Section {
-  constructor({/* items, */renderer}, containerSelector) {
-    //this._renderer = items;
+  constructor({renderer}, containerSelector) {
     this._renderer = renderer;
     this._container = containerSelector;
   }
@@ -14,7 +13,7 @@ export default class Section {
     });
   }
 
-  //добавление
+  //добавка
   addItem(element) {
     this._container.prepend(element);
   }
