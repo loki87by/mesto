@@ -14,7 +14,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return Promise.reject(new Error(`Ошибка: ${res.status}`));
       }
     });
   }
@@ -32,7 +32,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
   //установка аватара
@@ -48,7 +48,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status} ${res.statusText}`));
     })
   }
 
@@ -62,7 +62,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
   //добавление карточки
@@ -79,7 +79,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
   //лайк карточки
@@ -92,7 +92,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status} ${res.statusText}`));
     })
     .then((data) => data);
   }
@@ -106,7 +106,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status} ${res.statusText}`));
     })
     .then((data) => data);
   }
@@ -120,7 +120,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`error${res.status}`);
+      return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
 }

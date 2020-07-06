@@ -1,13 +1,14 @@
 //импорты
 import './index.css';
-import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
-import Section from "../components/Section.js";
-import Popup from "../components/Popup.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
-import Api from "../components/Api.js";
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import Popup from '../components/Popup.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import Api from '../components/Api.js';
+import load from '../utils/utils.js';
 
 //переменны
 export const page = document.querySelector('.page');
@@ -51,16 +52,6 @@ export const token = {
 };
 //передаем токен
 export const api = new Api(token);
-
-//добавляем в UX загрузку
-const load = (Loading, form, defaultText, processText) => {  
-  const button = form.querySelector('.popup__button');
-  if(Loading) {
-    button.textContent = processText;
-  } else {
-    button.textContent = defaultText;
-  }
-}
 
 //операции с профилем
 //пользовательские данные
@@ -156,7 +147,7 @@ const imageForm = new PopupWithForm(addCards, {
     load(true, addCards, 'Создать', 'Создание...');
     api.addNewCard(item.name, item.link)
     .then(res => {
-    const card = new Card(template, () => api.putLike(res._id), () => api.deleteLike(res._id), {
+    const card = new Card(template, () => api.like(res._id), () => api.dislike(res._id), {
       data: res, handleCardClick: () => {
         popupWithImage.open(res);
       }

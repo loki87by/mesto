@@ -1,13 +1,13 @@
 //карточка
 export default class Card {
-  constructor(cardSelector, putLike, deleteLike, {data, handleCardClick}, deleteCard) {
+  constructor(cardSelector, like, dislike, {data, handleCardClick}, deleteCard) {
     this._title = data.name;
     this._image = data.link;
     this._likes = data.likes;
     this._id = data._id;
     this._owner = data.owner._id;
-    this._putLike = putLike;
-    this._deleteLike = deleteLike;
+    this.like = like;
+    this.dislike = dislike;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._deleteCard = deleteCard;
@@ -50,12 +50,12 @@ export default class Card {
     if (this._element.querySelector('.card__like').classList.contains('card__like_type_active')) {
       this._element.querySelector('.card__like').classList.remove("card__like_type_active");
       this._element.querySelector('.card__counter').textContent = this._likes.length -= 1;
-      this._dislike(this._id);
-      return;
+      this.dislike(this._id);
+      return
     }
     this._element.querySelector('.card__like').classList.add("card__like_type_active");
     this._element.querySelector('.card__counter').textContent = this._likes.length += 1;
-    this._like(this._id);
+    this.like(this._id);
   }
 
   //расставляем слушатели
@@ -64,8 +64,6 @@ export default class Card {
     this._element.addEventListener('click', this._cardHandler);
     this._element.querySelector('.card__like').addEventListener('click', () => {
       this._liker()
-    });
-    this._element.querySelector('.card__delete').addEventListener('click', () => {
     });
     this._element.querySelector('.card__image').addEventListener('click', () => {
       this._handleCardClick();
