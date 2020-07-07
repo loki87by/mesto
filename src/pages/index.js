@@ -97,12 +97,12 @@ const editProfile = () => {
   const infoAuthor = userInfo.getUserInfo();
   nameInput.value = infoAuthor.name;
   activityInput.value = infoAuthor.info;
-  popupProfileValidation.cleanError(popupProfile);
+  popupProfileValidation.cleanError(formObject, popupProfile);
   profileForm.open();
 };
 //попап смены аватара
 const changeForm = function() {
-  popupAvatarValidation.cleanError(popupAvatar);
+  popupAvatarValidation.cleanError(formObject, popupAvatar);
   changeAvatar.open();
 }
 //смена аватара
@@ -148,7 +148,7 @@ api.getInitialCards()
   });
 //попап добавления карточки
 const formImage = function() {
-  popupAddCardValidation.cleanError(addCards);
+  popupAddCardValidation.cleanError(formObject, addCards);
   imageForm.open();
 }
 //добавление карточек

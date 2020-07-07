@@ -17,12 +17,12 @@ export default class FormValidator {
   };
 
   //обнуление ошибок
-  cleanError(form) {
-    form.querySelectorAll('.popup__text-error').forEach((span) => {
+  cleanError(data, formSelector) {
+    formSelector.querySelectorAll(`.${data.errorClass}`).forEach((span) => {
       span.textContent = '';
     })
-    form.querySelectorAll('.popup__text').forEach((error) => {
-      error.classList.remove('popup__text_error');
+    formSelector.querySelectorAll(`${data.inputSelector}`).forEach((error) => {
+      error.classList.remove(`${data.inputErrorClass}`);
     })
   }
 
