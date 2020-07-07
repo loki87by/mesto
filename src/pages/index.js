@@ -1,3 +1,7 @@
+/*спасибо за советы в "можно лучше", некоторые очень заинтересовали (особенно римраф и тэги 
+  в   комментах), обязательно применю их к своему коду на выходных, но пока не стал тратить
+  время с которым и так очень туго.*/
+
 //импорты
 import './index.css';
 import Card from '../components/Card.js';
@@ -131,7 +135,7 @@ const cardList = new Section({
   renderer: (item) => {
     const card = new Card(template, () => api.like(item._id), () => api.dislike(item._id), {
       data: item, handleCardClick: () => {
-        popupWithImage.open(item);
+        popupWithImage.open(item, bigImageSelector, captionSelector);
       }
     }, () => confirmSubmit.submit(item._id));
     const cardElement = card.generateCard();
