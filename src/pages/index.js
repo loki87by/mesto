@@ -53,6 +53,16 @@ export const token = {
 //передаем токен
 export const api = new Api(token);
 
+//валидация попапов
+const popupProfileValidation = new FormValidator(formObject, popupProfile);
+popupProfileValidation.enableValidation();
+
+const popupAddCardValidation = new FormValidator(formObject, addCards);
+popupAddCardValidation.enableValidation();
+
+const popupAvatarValidation = new FormValidator(formObject, popupAvatar);
+popupAvatarValidation.enableValidation();
+
 //операции с профилем
 //пользовательские данные
 const userInfo = new UserInfo(formProfileInfo);
@@ -87,12 +97,12 @@ const editProfile = () => {
   const infoAuthor = userInfo.getUserInfo();
   nameInput.value = infoAuthor.name;
   activityInput.value = infoAuthor.info;
-  profileForm.cleanError();
+  popupProfileValidation.cleanError(popupProfile);
   profileForm.open();
 };
 //попап смены аватара
 const changeForm = function() {
-  changeAvatar.cleanError();
+  popupAvatarValidation.cleanError(popupAvatar);
   changeAvatar.open();
 }
 //смена аватара
@@ -138,7 +148,7 @@ api.getInitialCards()
   });
 //попап добавления карточки
 const formImage = function() {
-  imageForm.cleanError();
+  popupAddCardValidation.cleanError(addCards);
   imageForm.open();
 }
 //добавление карточек
@@ -177,17 +187,6 @@ confirmSubmit.submit = function(_id) {
     this.close();
   });
 };
-
-//валидация форм
-function validation() {
-  popups.forEach((form) => {
-    const valid = new FormValidator(formObject, form);
-      valid.enableValidation();
-      valid.cleanError(form);
-  });
-}
-//запускаем валидацию
-validation();
 
 //ставим слушатели вызова форм
 editButton.addEventListener("click", () => editProfile());

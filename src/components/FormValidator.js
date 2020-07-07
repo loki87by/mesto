@@ -21,6 +21,9 @@ export default class FormValidator {
     form.querySelectorAll('.popup__text-error').forEach((span) => {
       span.textContent = '';
     })
+    form.querySelectorAll('.popup__text').forEach((error) => {
+      error.classList.remove('popup__text_error');
+    })
   }
 
   // Функция, очистки ошибки

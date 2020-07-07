@@ -31,18 +31,6 @@ export default class PopupWithForm extends Popup{
     this.formSubmit(this._getInputValues());
   }
 
-  //чистим от старых ошибок
-  cleanError() {
-    const errors = Array.from(document.querySelectorAll('.popup__text-error'));
-    const inputs = Array.from(document.querySelectorAll('.popup__text'));
-    errors.forEach((span) => {
-      span.textContent = "";
-    });
-    inputs.forEach((input) => {
-      input.classList.remove('popup__text_error');
-    });
-  }
-
   //закрытие попапа
   close() {
     this.popupSelector.removeEventListener('submit', this.formSubmit);
