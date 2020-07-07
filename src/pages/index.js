@@ -57,8 +57,8 @@ export const api = new Api(token);
 const popupProfileValidation = new FormValidator(formObject, popupProfile);
 popupProfileValidation.enableValidation();
 
-const popupAddCardValidation = new FormValidator(formObject, addCards);
-popupAddCardValidation.enableValidation();
+const addCardsValidation = new FormValidator(formObject, addCards);
+addCardsValidation.enableValidation();
 
 const popupAvatarValidation = new FormValidator(formObject, popupAvatar);
 popupAvatarValidation.enableValidation();
@@ -148,7 +148,7 @@ api.getInitialCards()
   });
 //попап добавления карточки
 const formImage = function() {
-  popupAddCardValidation.cleanError(formObject, addCards);
+  addCardsValidation.cleanError(formObject, addCards);
   imageForm.open();
 }
 //добавление карточек
