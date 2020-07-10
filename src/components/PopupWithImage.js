@@ -3,14 +3,14 @@ import Popup from "./Popup.js"
 
 //попап с картинкой
 export default class PopupWithImage extends Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, bigImageSelector, captionSelector) {
     super(popupSelector);
+    this.bigImage = bigImageSelector;
+    this.bigImageCaption = captionSelector;
   }
 
   //разворот
   open(data) {
-    this.bigImage = document.querySelector('.popup__image');
-    this.bigImageCaption = document.querySelector('.popup__image-title');
     this.bigImage.src = data.link;
     this.bigImage.alt = data.name;
     this.bigImageCaption.textContent = data.name;

@@ -6,10 +6,10 @@ export default class Section {
   }
 
   //переборка
-  renderItems(items) {
+  renderItems(items, userId) {
     items.reverse();
     items.forEach((item) => {
-      this._renderer(item);
+      this._renderer(item, userId);
     });
   }
 

@@ -4,8 +4,8 @@ export default class Api {
     this.headers = options.headers;
   }
 
-  //работа с профилем
-  //получение юзердаты
+  //**работа с профилем
+  //*получение юзердаты
   getUserInfo() {
     return fetch(`${this.url}/users/me`, {
       headers: this.headers,
@@ -18,7 +18,7 @@ export default class Api {
       }
     });
   }
-  //изменение юзердаты
+  //*изменение юзердаты
   updateInfo(userName, userActivity) {
     return fetch(`${this.url}/users/me`, {
       method: 'PATCH',
@@ -35,7 +35,7 @@ export default class Api {
       return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
-  //установка аватара
+  //*установка аватара
   setUserAvatar(userAvatar) {
     return fetch(`${this.url}/users/me/avatar`, {
       method: 'PATCH',
@@ -52,8 +52,8 @@ export default class Api {
     })
   }
 
-  //работа с карточками
-  //получение дефолтных карточек
+  //**работа с карточками
+  //*получение дефолтных карточек
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
       headers: this.headers,
@@ -65,7 +65,7 @@ export default class Api {
       return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
-  //добавление карточки
+  //*добавление карточки
   addNewCard(cardName, cardLink) {
     return fetch(`${this.url}/cards`, {
       method: 'POST',
@@ -82,7 +82,7 @@ export default class Api {
       return Promise.reject(new Error(`Ошибка: ${res.status}`));
     });
   }
-  //лайк карточки
+  //*лайк карточки
   like(cardId) {
     return fetch(`${this.url}/cards/likes/${cardId}`, {
       method: 'PUT',
@@ -96,7 +96,7 @@ export default class Api {
     })
     .then((data) => data);
   }
-  //дизлайк карточки
+  //*дизлайк карточки
   dislike(cardId) {
     return fetch(`${this.url}/cards/likes/${cardId}`, {
       method: 'DELETE',
@@ -110,7 +110,7 @@ export default class Api {
     })
     .then((data) => data);
   }
-  //удаление карточки
+  //*удаление карточки
   deleteCard(id) {
     return fetch(`${this.url}/cards/${id}`, {
       method: 'DELETE',

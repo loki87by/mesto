@@ -1,6 +1,6 @@
 //карточка
 export default class Card {
-  constructor(cardSelector, like, dislike, {data, handleCardClick}, deleteCard) {
+  constructor(cardSelector, like, dislike, {data, handleCardClick}, deleteCard, userId) {
     this._title = data.name;
     this._image = data.link;
     this._likes = data.likes;
@@ -11,6 +11,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._deleteCard = deleteCard;
+    this._userId = userId;
   }
 
   //клонируем разметку
@@ -25,21 +26,22 @@ export default class Card {
     return this._element;
   }
 
-  //удаление
-  //прячем лишние корзины
+  //**удаление
+  //*прячем лишние корзины
   _cardOwner(_owner) {
-    if (this._owner === '590e9a4872facf6c5c573d9f') {
+    if (this._owner === this._userId) {
+      return;
     } else {
       this._element.querySelector('.card__delete').style.display = 'none';
     }
   }
-  //определяем клик по корзине
+  //*определяем клик по корзине
   _cardClickHandler(evt) {
     if (evt.target.classList.contains('card__delete')) {
       this._cardDelete();
     }
   };
-  //удаляем картчоку
+  //*удаляем картчоку
   _cardDelete() {
     this._deleteCard();
     this._element.removeEventListener('click', this._cardHandler);
@@ -48,14 +50,14 @@ export default class Card {
   //лайки
   _liker() {
     if (this._element.querySelector('.card__like').classList.contains('card__like_type_active')) {
+      this.dislike(this._id);
       this._element.querySelector('.card__like').classList.remove("card__like_type_active");
       this._element.querySelector('.card__counter').textContent = this._likes.length -= 1;
-      this.dislike(this._id);
       return
     }
+    this.like(this._id);
     this._element.querySelector('.card__like').classList.add("card__like_type_active");
     this._element.querySelector('.card__counter').textContent = this._likes.length += 1;
-    this.like(this._id);
   }
 
   //расставляем слушатели
@@ -80,7 +82,7 @@ export default class Card {
     cardImage.src = this._image;
     cardImage.alt = this._title;
     this._cardOwner(this._owner)
-    if (this._likes.find(item => item._id === '590e9a4872facf6c5c573d9f')) {
+    if (this._likes.some(item => item._id === this._userId)) {
       this._element.querySelector('.card__like').classList.add('card__like_type_active');
     }
     return this._element;
