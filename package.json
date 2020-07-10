@@ -1,6 +1,6 @@
 {
   "name": "mesto",
-  "version": "1.9.3",
+  "version": "1.6.3",
   "description": "entry point: (index.js)",
   "main": "index.js",
   "scripts": {
