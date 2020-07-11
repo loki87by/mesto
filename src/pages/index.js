@@ -185,9 +185,14 @@ confirmSubmit.submit = function(_id) {
   confirmSubmit.open()
   popupConfirm.addEventListener('click', evt => {
     evt.preventDefault();
-    document.getElementById(_id).remove();
-    api.deleteCard(_id);
-    this.close();
+    api.deleteCard(_id)
+    .then(() => {
+      document.getElementById(_id).remove();
+      this.close();
+    })
+    .catch(err => {
+      console.log(err);
+    })
   });
 };
 

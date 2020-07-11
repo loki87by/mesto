@@ -43,8 +43,8 @@ export default class Card {
   };
   //*удаляем картчоку
   _cardDelete() {
-    this._deleteCard();
     this._element.removeEventListener('click', this._cardHandler);
+    this._deleteCard();
   };
 
   //лайки
