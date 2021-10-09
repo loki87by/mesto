@@ -11,8 +11,8 @@
 * работа с сервером через **API**
 * и другое 
 
-[Макет:](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1) 
-[Макет:](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1) 
+[Основной макет:](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1) 
+[Макет попапа:](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1) 
 [Deploy:](https://loki87by.github.io/mesto) 
 
 Проект был учебным, дальнейших доработок больше не планируется, однако есть работы - модификации данного проекта: 
