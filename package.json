@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/loki87by/mesto#readme",
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "autoprefixer": "^9.8.3",
-    "babel-loader": "^8.2.2",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "autoprefixer": "^9.8.8",
+    "babel-loader": "^8.2.3",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.11",
     "file-loader": "^6.2.0",
@@ -37,6 +37,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "core-js": "^3.18.2"
+    "core-js": "^3.20.0"
   }
 }
